@@ -1,5 +1,5 @@
 class SpeakersController < ApplicationController
-  before_action :set_speaker, only: %i[ show edit update destroy ]
+  before_action :set_speaker, only: %i[ show ]
 
   # GET /speakers or /speakers.json
   def index

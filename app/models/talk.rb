@@ -1,5 +1,5 @@
-class Speaker < ApplicationRecord
+class Talk < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
-  has_one :talk
+  belongs_to :speaker
 end
