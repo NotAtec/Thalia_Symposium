@@ -75,3 +75,7 @@ group :test do
 end
 
 gem "friendly_id", "~> 5.5"
+
+gem "devise", "~> 4.9"
+
+gem "omniauth", "~> 2.1"
