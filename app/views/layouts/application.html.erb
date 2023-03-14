@@ -42,21 +42,58 @@
           background-repeat: no-repeat;
           background-image: url(<%= image_url "login-arrow.svg" %>)
       }
+
+      .menu-mobile {
+
+      }
     </style>
+
+    <script>
+      let menuOpen = false;
+
+      window.addEventListener("click", function(event) {
+          if (menuOpen) {
+              toggleMenu(event);
+          }
+      });
+
+      window.addEventListener("load", function() {
+          document.getElementById("menu-button").addEventListener("click", toggleMenu);
+      });
+
+      function toggleMenu(event) {
+          let classes = document.getElementById("nav-items-expanded").classList;
+          menuOpen = classes.contains("hidden");
+          if (classes.contains("hidden")) classes.remove("hidden");
+          else classes.add("hidden");
+          event.stopPropagation();
+      }
+    </script>
   </head>
 
   <body class="block">
-    <header id="logo" class="flex w-full items-end py-8 px-8">
-      <%= image_tag "thalialogo.svg", "width": "25%" %>
-      <%= image_tag "largelogo.svg", "width": "75%" %>
+    <header id="logo" class="w-full lg:items-end py-8 px-8 lg:grid lg:grid-cols-[1fr_2.46fr]">
+      <%= image_tag "thalialogo.svg", class: "w-1/3 lg:w-full" %>
+      <%= image_tag "largelogo.svg", width: "100%", class: "mt-8 lg:m-0" %>
     </header>
     <nav id="nav" class="flex flex-row justify-between top-0 sticky w-full py-2 px-2">
-      <div class="flex grow flex-row justify-start gap-4">
+      <div class="md:hidden flex grow flex-row justify-start gap-4">
+        <button id="menu-button" class="block bg-[#E82F90CC] rounded-full px-3 py-3 text-white">
+          <%= image_tag "hamburger.svg", class: "w-6" %>
+        </button>
+      </div>
+      <ul id="nav-items" class="max-md:hidden flex grow flex-row justify-start gap-4">
         <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] rounded-full px-8 py-3 text-white" %>
         <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] rounded-full px-8 py-3 text-white" %>
         <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] rounded-full px-8 py-3 text-white" %>
         <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] rounded-full px-8 py-3 text-white" %>
-      </div>
+      </ul>
+      <ul id="nav-items-expanded" class="w-full hidden fixed left-0 bottom-0 flex grow flex-col justify-end m-0 bg-white">
+        <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] px-8 py-3 text-white" %>
+        <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] px-8 py-3 text-white" %>
+        <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] px-8 py-3 text-white" %>
+        <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] px-8 py-3 text-white" %>
+      </ul>
       <div class="flex-none">
         <%= link_to "Log In", sponsors_url, id: "login-button", class: "block bg-[#222222CC] rounded-full py-3 pl-10 pr-6 text-white" %>
       </div>
