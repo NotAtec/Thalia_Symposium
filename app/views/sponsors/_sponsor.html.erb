@@ -1,21 +1,29 @@
-<div id="<%= dom_id sponsor %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= sponsor.title %>
-  </p>
+<div id="<%= dom_id speaker %>" class="speaker flex bg-white lg:rounded-2xl lg:odd:mr-[20%] lg:even:ml-[20%] odd:pl-[25%] lg:odd:pl-[20%] even:pr-[25%] lg:even:pr-[20%] drop-shadow-lg w-100%">
+  <div class="w-[100%] p-4 md:p-8">
+    <h2 class="text-xl md:text-3xl font-black"><%= speaker.title %></h2>
+    <p><%= speaker.body %></p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= sponsor.body %>
-  </p>
+  <% #if action_name != "show" %>
+    <% #link_to "Show this speaker", speaker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% # link_to 'Edit this speaker', edit_speaker_path(speaker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <% #end %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= sponsor.slug %>
-  </p>
+  <style>
+      .speaker {
+          background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-exp1.licdn.com%2Fdms%2Fimage%2FC4E03AQF-WW1Lc14s-Q%2Fprofile-displayphoto-shrink_800_800%2F0%2F1573568929337%3Fe%3D2147483647%26v%3Dbeta%26t%3DLJDnXBSn3IoJxfpbo7cNKKk3Kv5r1bjdKR7cfK6g7fk&f=1&nofb=1&ipt=e34d01fd3883ddec4ce1e5674a1dc665511cc2d0f21d81947da7633e9c8d10a8&ipo=images");
+          background-size: 25%;
+          background-repeat: no-repeat;
+          aspect-ratio: 4 / 1;
+      }
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this sponsor", sponsor, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+      .speaker:nth-child(odd) {
+          background-position: top left;
+      }
+
+      .speaker:nth-child(even) {
+          padding-right: 20%;
+          background-position: top right;
+      }
+  </style>
 </div>
