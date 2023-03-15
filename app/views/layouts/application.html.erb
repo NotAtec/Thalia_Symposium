@@ -57,7 +57,7 @@
 
       function toggleMenu(event) {
           let original = document.getElementById("nav").classList;
-          let logo = document.getElementById("logo").classList;
+          let logo = document.getElementById("logo");
           let container = document.getElementById("nav-container").classList;
           let expanded = document.getElementById("nav-items-expanded").classList;
           menuOpen = expanded.contains("hidden");
@@ -66,16 +66,20 @@
               original.add("hidden");
               container.remove("h-[64px]");
               container.add("h-[192px]");
-              logo.remove("h-[calc(100%-64px)]");
-              logo.add("h-[calc(100%-192px)]");
+              if (logo) {
+                  logo.classList.remove("h-[calc(100%-64px)]");
+                  logo.classList.add("h-[calc(100%-192px)]");
+              }
           }
           else {
               expanded.add("hidden");
               original.remove("hidden");
               container.remove("h-[192px]");
               container.add("h-[64px]");
-              logo.remove("h-[calc(100%-192px)]");
-              logo.add("h-[calc(100%-64px)]");
+              if (logo) {
+                  logo.classList.remove("h-[calc(100%-192px)]");
+                  logo.classList.add("h-[calc(100%-64px)]");
+              }
           }
           event.stopPropagation();
       }
@@ -97,20 +101,20 @@
           </button>
         </div>
         <ul id="nav-items" class="max-md:hidden flex grow flex-row justify-start gap-4">
-          <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] rounded-full font-medium px-8 py-3 text-white" %>
-          <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] rounded-full font-medium px-8 py-3 text-white" %>
-          <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] rounded-full font-medium px-8 py-3 text-white" %>
-          <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] rounded-full font-medium px-8 py-3 text-white" %>
+          <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] hover:bg-[#E82F90FF] rounded-full font-medium px-8 py-3 text-white" %>
+          <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] hover:bg-[#B04EA7FF] rounded-full font-medium px-8 py-3 text-white" %>
+          <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] hover:bg-[#6C72C2FF] rounded-full font-medium px-8 py-3 text-white" %>
+          <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] rounded-full font-medium px-8 py-3 text-white" %>
         </ul>
         <div class="flex-none">
-          <%= link_to "Log In", sponsors_url, id: "login-button", class: "block bg-[#222222CC] rounded-full font-medium py-3 pl-10 pr-6 text-white" %>
+          <%= link_to "Log In", sponsors_url, id: "login-button", class: "block bg-[#222222CC] hover:bg-[#222222FF] rounded-full font-medium py-3 pl-10 pr-6 text-white" %>
         </div>
       </div>
       <ul id="nav-items-expanded" class="w-full hidden flex flex-col justify-end m-0 bg-white">
-        <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] px-8 py-3 font-medium text-white" %>
-        <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] px-8 py-3 font-medium text-white" %>
-        <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] px-8 py-3 font-medium text-white" %>
-        <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] px-8 py-3 font-medium text-white" %>
+        <%= link_to "Home",             root_url,     class: "block bg-[#E82F90CC] hover:bg-[#E82F90FF] px-8 py-3 font-medium text-white" %>
+        <%= link_to "Programme",        speakers_url, class: "block bg-[#B04EA7CC] hover:bg-[#B04EA7FF] px-8 py-3 font-medium text-white" %>
+        <%= link_to "Sponsors",         sponsors_url, class: "block bg-[#6C72C2CC] hover:bg-[#6C72C2FF] px-8 py-3 font-medium text-white" %>
+        <%= link_to "Get Your Ticket!", sponsors_url, class: "block bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] px-8 py-3 font-medium text-white" %>
       </ul>
     </nav>
     <main class="w-full">
