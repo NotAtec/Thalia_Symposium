@@ -1,6 +1,6 @@
-<div id="<%= dom_id speaker %>" class="speaker flex bg-white rounded-2xl odd:mr-[20%] even:ml-[20%] drop-shadow-lg w-100%">
-  <div class="w-[100%] p-8">
-    <h2 class="text-3xl font-black"><%= speaker.name %></h2>
+<div id="<%= dom_id speaker %>" class="speaker flex bg-white lg:rounded-2xl lg:odd:mr-[20%] lg:even:ml-[20%] odd:pl-[25%] lg:odd:pl-[20%] even:pr-[25%] lg:even:pr-[20%] drop-shadow-lg w-100%">
+  <div class="w-[100%] p-4 md:p-8">
+    <h2 class="text-xl md:text-3xl font-black"><%= speaker.name %></h2>
     <p><%= speaker.body %></p>
   </div>
 
@@ -18,13 +18,12 @@
       }
 
       .speaker:nth-child(odd) {
-          padding-left: 20%;
-          background-position: left;
+          background-position: top left;
       }
 
       .speaker:nth-child(even) {
           padding-right: 20%;
-          background-position: right;
+          background-position: top right;
       }
   </style>
 </div>
