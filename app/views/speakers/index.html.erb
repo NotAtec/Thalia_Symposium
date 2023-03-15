@@ -3,11 +3,17 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Speakers</h1>
+  <div class="container pt-8 mx-auto w-full">
+    <h1 class="font-bold text-6xl italic text-black w-fit">Speakers</h1>
+    <br>
+    <div class="container w-full bg-white p-4 md:p-8 shadow-lg text-lg font-medium lg:rounded-2xl">
+      Before presenting the full schedule, we would like to introduce this years' speakers. <br>
+      A short introduction about each speaker is provided, just like a preview of what they will be presenting at the symposium. <br>
+      This list is not yet complete, so make sure to check back later for more updates on the speakers!
+    </div>
   </div>
 
-  <div id="speakers" class="min-w-full">
+  <div id="speakers-grid" class="flex flex-col gap-8 container mx-auto w-full my-16 min-h-screen">
     <%= render @speakers %>
   </div>
 </div>

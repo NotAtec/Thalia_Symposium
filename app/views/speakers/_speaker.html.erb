@@ -1,27 +1,11 @@
-<div id="<%= dom_id speaker %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= speaker.name %>
-  </p>
+<div id="<%= dom_id speaker %>" class="speaker flex bg-white lg:rounded-2xl lg:odd:mr-[20%] lg:even:ml-[20%] odd:pl-[25%] lg:odd:pl-[20%] even:pr-[25%] lg:even:pr-[20%] drop-shadow-lg w-100%">
+  <div class="w-[100%] p-4 md:p-8">
+    <h2 class="text-xl md:text-3xl font-black"><%= speaker.name %></h2>
+    <p><%= speaker.body %></p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= speaker.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= speaker.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= speaker.slug %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this speaker", speaker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this speaker', edit_speaker_path(speaker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <% #if action_name != "show" %>
+    <% #link_to "Show this speaker", speaker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% # link_to 'Edit this speaker', edit_speaker_path(speaker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <% #end %>
 </div>

@@ -1,0 +1,14 @@
+.speaker {
+  background-size: 25%;
+  background-repeat: no-repeat;
+  aspect-ratio: 4 / 1;
+}
+
+.speaker:nth-child(odd) {
+  background-position: left;
+}
+
+.speaker:nth-child(even) {
+  padding-right: 20%;
+  background-position: right;
+}

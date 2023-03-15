@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  background: radial-gradient(ellipse at top left, #94daf7, #fadcec) no-repeat center center fixed;
+  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#logo {
+  overflow: auto;
+}
+
+#nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+footer {
+  margin-top: auto;
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+}

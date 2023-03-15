@@ -1,0 +1,24 @@
+<nav id="nav-container" class="h-[64px] sticky w-full top-0 z-50">
+  <div id="nav" class="flex flex-row justify-between w-full py-2 px-2">
+    <div class="md:hidden flex grow flex-row justify-start gap-4">
+      <button id="menu-button" class="block bg-[#E82F90CC] rounded-full px-3 py-3 text-white">
+        <%= image_tag "hamburger.svg", class: "w-6" %>
+      </button>
+    </div>
+    <ul id="nav-items" class="max-md:hidden flex grow flex-row justify-start gap-4">
+      <%= link_to "Home",             root_path,     class: "block bg-[#E82F90CC] hover:bg-[#E82F90FF] rounded-full font-medium px-8 py-3 text-white" %>
+      <%= link_to "Programme",        speakers_path, class: "block bg-[#B04EA7CC] hover:bg-[#B04EA7FF] rounded-full font-medium px-8 py-3 text-white" %>
+      <%= link_to "Sponsors",         sponsors_path, class: "block bg-[#6C72C2CC] hover:bg-[#6C72C2FF] rounded-full font-medium px-8 py-3 text-white" %>
+      <%= link_to "Get Your Ticket!", root_path, class: "block bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] rounded-full font-medium px-8 py-3 text-white" %>
+    </ul>
+    <div class="flex-none">
+      <%= link_to "Log In", root_path, id: "login-button", class: "block bg-[#222222CC] hover:bg-[#222222FF] rounded-full font-medium py-3 pl-10 pr-6 text-white" %>
+    </div>
+  </div>
+  <ul id="nav-items-expanded" class="w-full hidden flex flex-col justify-end m-0 bg-white">
+    <%= link_to "Home",             root_path,     class: "block bg-[#E82F90CC] hover:bg-[#E82F90FF] px-8 py-3 font-medium text-white" %>
+    <%= link_to "Programme",        speakers_path, class: "block bg-[#B04EA7CC] hover:bg-[#B04EA7FF] px-8 py-3 font-medium text-white" %>
+    <%= link_to "Sponsors",         sponsors_path, class: "block bg-[#6C72C2CC] hover:bg-[#6C72C2FF] px-8 py-3 font-medium text-white" %>
+    <%= link_to "Get Your Ticket!", root_path, class: "block bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] px-8 py-3 font-medium text-white" %>
+  </ul>
+</nav>
