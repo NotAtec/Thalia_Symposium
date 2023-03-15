@@ -6,10 +6,6 @@ class SpeakersController < ApplicationController
     @speakers = Speaker.all
   end
 
-  # GET /speakers/1 or /speakers/1.json
-  def show
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
