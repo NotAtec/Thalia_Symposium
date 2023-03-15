@@ -1,15 +1,14 @@
 .speaker {
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-exp1.licdn.com%2Fdms%2Fimage%2FC4E03AQF-WW1Lc14s-Q%2Fprofile-displayphoto-shrink_800_800%2F0%2F1573568929337%3Fe%3D2147483647%26v%3Dbeta%26t%3DLJDnXBSn3IoJxfpbo7cNKKk3Kv5r1bjdKR7cfK6g7fk&f=1&nofb=1&ipt=e34d01fd3883ddec4ce1e5674a1dc665511cc2d0f21d81947da7633e9c8d10a8&ipo=images");
   background-size: 25%;
   background-repeat: no-repeat;
   aspect-ratio: 4 / 1;
 }
 
 .speaker:nth-child(odd) {
-  background-position: top left;
+  background-position: left;
 }
 
 .speaker:nth-child(even) {
   padding-right: 20%;
-  background-position: top right;
+  background-position: right;
 }
