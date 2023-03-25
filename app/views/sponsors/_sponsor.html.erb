@@ -1,22 +1,17 @@
-<div id="<%= dom_id sponsor %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= sponsor.title %>
-  </p>
+<div id="<%= dom_id sponsor %>" class="speaker flex bg-white lg:rounded-2xl lg:odd:mr-[20%] lg:even:ml-[20%] odd:pl-[25%] lg:odd:pl-[20%] even:pr-[25%] lg:even:pr-[20%] drop-shadow-lg w-100%">
+  <div class="w-[100%] p-4 md:p-8">
+    <h2 class="text-xl md:text-3xl font-black"><%= sponsor.title %></h2>
+    <p><%= sponsor.body %><%= link_to  sponsor.link, sponsor.link %></p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= sponsor.body %>
-  </p>
+  <% #if action_name != "show" %>
+    <% #link_to "Show this speaker", speaker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% # link_to 'Edit this speaker', edit_speaker_path(speaker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <% #end %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= sponsor.slug %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this sponsor", sponsor, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this sponsor', edit_sponsor_path(sponsor), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <style>
+    #<%= dom_id sponsor %> {
+      background-image: url("<%= image_url sponsor.image %>");
+    }
+  </style>
 </div>
