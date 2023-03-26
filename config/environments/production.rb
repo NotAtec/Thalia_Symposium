@@ -104,4 +104,8 @@ Rails.application.configure do
 
   # Devise Mailer
   config.action_mailer.default_url_options = { host: 'symposium.thalia.nu', port: 443 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 end
