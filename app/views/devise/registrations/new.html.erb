@@ -45,10 +45,19 @@
       </div>
       <br>
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", class: "bg-[#E82F90CC] hover:bg-[#E82F90FF] rounded-full font-medium px-8 py-3 text-white" %>
       </div>
     <% end %>
     <br>
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+      Already have a ticket? <%= link_to "Login Here", new_user_session_path, class: "font-medium text-primary-600 hover:underline dark:text-primary-500" %>
+    </p>
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400 hover:underline">
+      <%= link_to "Didn't receive ticket confirmation email?", new_confirmation_path(resource_name) %>
+    </p>
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400 hover:underline">
+      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
+    </p>
+    <br>
   </div>
 </div>
-<%= render "devise/shared/links" %>
