@@ -82,4 +82,15 @@ Rails.application.configure do
 
   # Generate digests for assets URLs  
   config.assets.digest = true
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => Rails.application.credentials.dig(:sendgrid, :username),
+    :password => Rails.application.credentials.dig(:sendgrid, :password),
+    :domain => 'thalia.nu',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  
 end
