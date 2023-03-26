@@ -1,29 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container mx-auto w-full my-16 min-h-screen bg-white py-16 px-8 md:px-16 rounded-2xl drop-shadow-2xl z-0">
+  <h1 class="text-5xl font-bold">
+    Get Your Tickets Now!
+  </h1>
+  <p class="pt-8 max-md:text-lg md:text-2xl">
+    After a long wait, the annual Thalia Symposium is here. The early ticket sign-ups for Thalia members have now closed. This means it's time to open up general registration! <br>
+    We still have some tickets available, so make sure to mark the 19th of april in your calendar and sign up now! <br>
+    The signup sheet below will be open until the 5th of april, or until all tickets are sold out. <br>
+    <br>
+    Price for the symposium is €12,50. Lunch during the event is included in the price. <br>
+  </p>
+  <br>
+  <br>
+  <br>
+  <div class="text-lg text-center w-full">
+    <h2 class="text-3xl mt-8 font-bold">Reserve Your Ticket:</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :first_name, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <br />
+        <%= f.text_field :firstname, autofocus: true, autocomplete: "first_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :last_name, class: "text-xl mt-2 font-bold", class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <br />
+        <%= f.text_field :lastname, autofocus: true, autocomplete: "last_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :email, class: "text-xl mt-2 font-bold", class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :password, class: "text-xl mt-2 font-bold", class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :password_confirmation, class: "text-xl mt-2 font-bold", class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+    <br>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
+</div>
 <%= render "devise/shared/links" %>
