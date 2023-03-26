@@ -1,5 +1,6 @@
-<p>Welcome <%= @email %>!</p>
+<p>Hello <%= @first_name %>!</p>
+<p>You have reserved a ticket for the 2023 Thalia Symposium. <br>
+We're glad to have you join, and would love to see you at LUX on the 19th.</p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Finally, you just need to confirm your reservation:</p>
+<p><%= link_to 'Confirm my Reservation', confirmation_url(@resource, confirmation_token: @token) %></p>
