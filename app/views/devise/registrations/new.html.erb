@@ -32,6 +32,11 @@
       </div>
       <br>
       <div class="field">
+        <%= f.label "Dietary Preferences / Restrictions:", class: "mb-2 text-sm font-medium text-gray-900" %> <br />
+        <%= f.text_field :diet, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
+      </div>
+      <br>
+      <div class="field">
         <%= f.label :password, class: "mb-2 text-sm font-medium text-gray-900 " %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
