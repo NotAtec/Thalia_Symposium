@@ -17,31 +17,31 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
-        <%= f.label :first_name, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <br />
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= f.label :first_name, class: "mb-2 text-sm font-medium text-gray-900" %> <br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 " %>
       </div>
       <br>
       <div class="field">
-        <%= f.label :last_name, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <br />
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= f.label :last_name, class: "mb-2 text-sm font-medium text-gray-900 " %> <br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
       </div>
       <br>
       <div class="field">
-        <%= f.label :email, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
-        <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= f.label :email, class: "mb-2 text-sm font-medium text-gray-900 " %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
       </div>
       <br>
       <div class="field">
-        <%= f.label :password, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= f.label :password, class: "mb-2 text-sm font-medium text-gray-900 " %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
       </div>
       <br>
       <div class="field">
-        <%= f.label :password_confirmation, class: "mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= f.label :password_confirmation, class: "mb-2 text-sm font-medium text-gray-900 " %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
       </div>
       <br>
       <div class="actions">
@@ -49,13 +49,13 @@
       </div>
     <% end %>
     <br>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-      Already have a ticket? <%= link_to "Login Here", new_user_session_path, class: "font-medium text-primary-600 hover:underline dark:text-primary-500" %>
+    <p class="text-sm font-light text-gray-500 ">
+      Already have a ticket? <%= link_to "Login Here", new_user_session_path, class: "font-medium text-primary-600 hover:underline" %>
     </p>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400 hover:underline">
+    <p class="text-sm font-light text-gray-500 hover:underline">
       <%= link_to "Didn't receive ticket confirmation email?", new_confirmation_path(resource_name) %>
     </p>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400 hover:underline">
+    <p class="text-sm font-light text-gray-500 hover:underline">
       <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
     </p>
     <br>
