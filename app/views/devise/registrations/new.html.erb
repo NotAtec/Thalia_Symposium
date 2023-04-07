@@ -12,57 +12,11 @@
   <br>
   <br>
   <br>
-  <div class="text-lg text-center w-full">
-    <h2 class="text-3xl mt-8 font-bold">Reserve Your Ticket:</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <div class="field">
-        <%= f.label :first_name, class: "mb-2 text-sm font-medium text-gray-900" %> <br />
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 " %>
+
+  <div class="container flex flex-col items-center bg-[#E82E8F] rounded-2xl p-6 text-white shadow-inner text-xl">
+      <div class="flex flex-1 items-center">
+        Unfortunately sign-ups for the symposiums are now closed. <br> If you've signed up, you'll get an email soon saying logins are open allowing you to register for the day's talks.
       </div>
-      <br>
-      <div class="field">
-        <%= f.label :last_name, class: "mb-2 text-sm font-medium text-gray-900 " %> <br />
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.label :email, class: "mb-2 text-sm font-medium text-gray-900 " %><br />
-        <%= f.email_field :email, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.label "Dietary Preferences / Restrictions:", class: "mb-2 text-sm font-medium text-gray-900" %> <br />
-        <%= f.text_field :diet, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.label :password, class: "mb-2 text-sm font-medium text-gray-900 " %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.label :password_confirmation, class: "mb-2 text-sm font-medium text-gray-900 " %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
-      </div>
-      <br>
-      <div class="actions">
-        <%= f.submit "Sign up", class: "bg-[#E82F90CC] hover:bg-[#E82F90FF] rounded-full font-medium px-8 py-3 text-white" %>
-      </div>
-    <% end %>
-    <br>
-    <p class="text-sm font-light text-gray-500 ">
-      Already have a ticket? <%= link_to "Login Here", new_user_session_path, class: "font-medium text-primary-600 hover:underline" %>
-    </p>
-    <p class="text-sm font-light text-gray-500 hover:underline">
-      <%= link_to "Didn't receive ticket confirmation email?", new_confirmation_path(resource_name) %>
-    </p>
-    <p class="text-sm font-light text-gray-500 hover:underline">
-      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
-    </p>
-    <br>
-  </div>
+    </div>
+  
 </div>
