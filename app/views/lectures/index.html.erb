@@ -1,3 +1,6 @@
+<%= turbo_frame_tag "modal", target: "_top" do %>
+  TEST
+<% end %>
 <div class="w-full">
   <div class="container pt-8 mx-auto w-full">
     <h1 class="font-bold text-6xl italic text-black w-fit">Schedule</h1>
@@ -11,7 +14,7 @@
   <br>
   <div class="container pt-8 mx-auto w-full grid grid-cols-[15%_42.5%_42.5%] gap-4">
     <div></div>
-    <div class="container rounded-2xl items-center p-6 text-white shadow-inner text-xl bg-[#B04EA7CC]">LUX 1</div>
+    <%= link_to lecture_path(id: 1), data: { 'turbo-frame' => :modal } do %><div class="container rounded-2xl items-center p-6 text-white shadow-inner text-xl bg-[#B04EA7CC]">LUX 1</div><% end %>
     <div class="container rounded-2xl items-center p-6 text-white shadow-inner text-xl bg-[#B04EA7CC]">Joris Ivenszaal</div>
     <div class="container items-center bg-[#E82E8F] rounded-2xl p-6 text-white shadow-inner text-xl">10:00 - 10:30</div>
     <div class="container items-center bg-[#E82E8F] rounded-2xl p-6 text-white shadow-inner text-xl">General Walk-in & Opening (LUX Cafe / LUX 1)</div>
