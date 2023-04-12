@@ -1,39 +1,39 @@
-<div class="container mx-auto w-full my-16 min-h-screen bg-white py-16 px-8 md:px-16 rounded-2xl drop-shadow-2xl z-0">
-  <h1 class="text-5xl font-bold">
-    Symposium 2023: Login to register for talks!
+<div class="container mx-auto w-full my-16 bg-white py-16 px-8 md:px-16 rounded-2xl drop-shadow-2xl z-0">
+  <h1 class="text-5xl font-bold text-center">
+    Sign In
   </h1>
-
-  <p class="pt-8 max-md:text-lg md:text-2xl">
-    Currently, the schedule has not yet been released for the symposium. 
-    Signing in will be possible once the schedule is released and registration for talks open up. <br>
-    For now, make sure you have a ticket for the symposium. After signing up you'll receive an email to confirm the registration, 
-    Finally you'll receive an email after the sign-up deadline to invite you to sign up for the parallel tracks!. <br>
+  <br>
+  <div class="text-lg text-center w-full">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :email, class: "mb-2 text-sm font-medium text-gray-900" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
+      </div>
+      <div class="field">
+        <%= f.label :password, class: "mb-2 text-sm font-medium text-gray-900" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5" %>
+      </div>
+      <br>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "mb-2 text-sm font-medium text-gray-900" %>
+        </div>
+      <% end %>
+      <br>
+      <div class="actions">
+        <%= f.submit "Log in", class: "bg-[#E82F90CC] hover:bg-[#E82F90FF] rounded-full font-medium px-8 py-3 text-white" %>
+      </div>
+    <% end %>
     <br>
-    If you've signed up to the symposium using the Thalia website or app, soon you can use your Thalia account to sign in and register for the talks. <br>
-    <b>You will not need to sign up again on the symposium website manually.</b>
-  </p>
-
-  <div class="w-full flex flex-col lg:flex-row gap-16 pt-16">
-    <div class="container flex flex-col items-center bg-[#06AAED] rounded-2xl p-6 text-white shadow-inner text-xl">
-      <div class="flex flex-row mb-2">
-        <%= image_tag "account-plus.svg", class: "w-8 invert mr-2" %> <span class="font-bold pt-1">Registrations</span>
-      </div>
-      <div class="flex flex-1 items-center">
-        <span class="text-center">
-          Confirm your Thalia registration via <a href="https://thalia.nu/events/1009" class="underline">thalia.nu</a>. <br> If you don't have a registration there make sure to sign up here!
-        </span>
-      </div>
-    </div>
-
-    <div class="container flex flex-col items-center bg-[#935DB2] rounded-2xl p-6 text-white shadow-inner text-xl">
-      <div class="flex flex-row mb-2">
-        <%= image_tag "clock-time-ten-outline.svg", class: "w-8 invert mr-2" %> <span class="font-bold pt-1">When do talk registrations open?</span>
-      </div>
-      <div class="flex flex-1 items-center">
-        <span class="text-center">
-          April 10<sup>th</sup> 2023 <br />
-        </span>
-      </div>
-    </div>
+    <p class="text-sm font-light text-gray-500">
+      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-primary-600 hover:underline " %>
+    </p>
+    <p class="text-sm font-light text-gray-500">
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "font-medium text-primary-600 hover:underline " %>
+    </p>
+    <p class="text-sm font-light text-gray-500">
+      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "font-medium text-primary-600 hover:underline " %>
+    </p>
   </div>
-</div>
