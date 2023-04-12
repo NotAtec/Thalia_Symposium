@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:index], param: :slug
   resources :speakers, only: [:index], param: :slug
 
-  resources :registration, only: [:create, :destroy]
+  resources :slots, only: [:create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

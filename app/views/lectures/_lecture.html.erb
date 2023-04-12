@@ -22,12 +22,12 @@
   </div>
   <!-- Modal footer -->
   <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-    <% if !lecture.slots.zero? %>
+    <% if !lecture.max.zero? %>
       <% if user_signed_in? %>
         <% if lecture.registered_by(current_user.id) %>
-          <%= button_to "Unregister", registration_path(lecture.userRegistration(current_user.id)), method: :delete, class: "text-white bg-[#cc3333cc] hover:bg-[#cc3333ff] rounded-lg text-sm font-medium px-5 py-2.5"%>
+          <%= button_to "Unregister", slot_path(lecture.userRegistration(current_user.id)), method: :delete, class: "text-white bg-[#cc3333cc] hover:bg-[#cc3333ff] rounded-lg text-sm font-medium px-5 py-2.5"%>
         <% else %>
-          <%= button_to "Register",  registrations_path, params: {id: lecture.id }, class: "text-white bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] rounded-lg text-sm font-medium px-5 py-2.5"%>
+          <%= button_to "Register",  slots_path, params: {id: lecture.id }, class: "text-white bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] rounded-lg text-sm font-medium px-5 py-2.5"%>
         <% end %>
       <% end %>
     <% end %>

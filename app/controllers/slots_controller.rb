@@ -1,8 +1,8 @@
-class RegistrationsController < ApplicationController
+class SlotsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    @registration = Registration.new(user: current_user, lecture: params[:id])
+    @registration = Slot.new(user: current_user, lecture_id: params[:id])
     if @registration.save
       redirect_to lectures_path, notice: 'You have successfully registered for this talk.'
     else
@@ -11,7 +11,7 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    @registration = Registration.find(params[:id])
+    @registration = Slot.find(params[:id].to_i)
     if @registration.destroy
       redirect_to lectures_path, notice: 'You have successfully unregistered for this talk.'
     else

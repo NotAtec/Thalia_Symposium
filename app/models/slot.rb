@@ -1,4 +1,4 @@
-class Registration < ApplicationRecord
+class Slot < ApplicationRecord
   belongs_to :user
   belongs_to :lecture
 end
