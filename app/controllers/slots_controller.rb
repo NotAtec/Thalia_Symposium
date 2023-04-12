@@ -7,6 +7,7 @@ class SlotsController < ApplicationController
     
     if @registration.overmax?(@lecture)
       redirect_to lectures_path, alert: 'Unfortunately registrations for this talk are full.'
+      return
     end
 
     if @registration.save
