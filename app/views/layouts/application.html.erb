@@ -50,6 +50,7 @@
           event.stopPropagation();
       }
     </script>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body class="block">
@@ -65,6 +66,7 @@
         <%= image_tag "largelogo.svg", width: "100%", class: "mt-8 lg:m-0" %>
       </header>
     <% end %>
+    <%= turbo_frame_tag "modal", target: "_top", class: "w-full min-h-screen" %>
     <%= render 'layouts/navbar' %>
     <main class="w-full min-h-screen">
       <%= yield %>

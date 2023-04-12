@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_124020) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_133159) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_124020) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "lectures", force: :cascade do |t|
+    t.string "title"
+    t.text "abstract"
+    t.bigint "speaker_id", null: false
+    t.integer "max"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["speaker_id"], name: "index_lectures_on_speaker_id"
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lecture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lecture_id"], name: "index_slots_on_lecture_id"
+    t.index ["user_id"], name: "index_slots_on_user_id"
   end
 
   create_table "speakers", force: :cascade do |t|
@@ -85,6 +105,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_124020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lectures", "speakers"
+  add_foreign_key "slots", "lectures"
+  add_foreign_key "slots", "users"
   add_foreign_key "speakers", "talks"
   add_foreign_key "talks", "speakers"
 end
