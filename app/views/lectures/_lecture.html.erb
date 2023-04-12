@@ -13,9 +13,11 @@
   </div>
   <!-- Modal body -->
   <div class="p-6 space-y-6">
-    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-      This talks speaker is: <%= lecture.speaker.name %>
-    </p>
+    <% if lecture.title == "Speeddates with companies" %>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        This talks speaker is: <%= lecture.speaker.name %>
+      </p>
+    <% end %>
     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
       <%= lecture.abstract %>
     </p>
