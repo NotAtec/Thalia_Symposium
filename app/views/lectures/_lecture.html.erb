@@ -22,11 +22,17 @@
   </div>
   <!-- Modal footer -->
   <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-    <button type="button" data-controller="turbo-modal" data-action="turbo-modal#hideModal" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Close</button>
     <% if !lecture.slots.zero? %>
-      <!-- sign up logic -->
-      <button type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Temp</button>
+      <% if user_signed_in? %>
+        <% if lecture.registered_by(current_user.id) %>
+          <%= button_to "Unregister", registration_path(lecture.userRegistration(current_user.id)), method: :delete, class: "text-white bg-[#cc3333cc] hover:bg-[#cc3333ff] rounded-lg text-sm font-medium px-5 py-2.5"%>
+        <% else %>
+          <%= button_to "Register",  registrations_path, params: {id: lecture.id }, class: "text-white bg-[#0FAEEECC] hover:bg-[#0FAEEEFF] rounded-lg text-sm font-medium px-5 py-2.5"%>
+        <% end %>
+      <% end %>
     <% end %>
+    <button type="button" data-controller="turbo-modal" data-action="turbo-modal#hideModal" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Close</button>
+    <button type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Temp</button>
   </div>
 </div>
 </div>
