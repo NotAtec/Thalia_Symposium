@@ -2,10 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="turbo-modal"
 export default class extends Controller {
-  connect() {
-    console.log("Turbo Modal Controller initialized");
-  }
-
 
   hideModal() {
     // find modal-container by id
@@ -28,9 +24,8 @@ export default class extends Controller {
   // hide modal when clicking outside of modal
   // action: "click@window->turbo-modal#closeBackground"
   closeBackground(e) {
-    if (e && this.modalTarget.contains(e.target)) {
-      return
-    }
+    e.preventDefault()
+    if (this.element === e.target || this.element.contains(e.target)) return
     this.hideModal()
   }
 }
