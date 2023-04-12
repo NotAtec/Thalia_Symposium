@@ -3,6 +3,12 @@ class SlotsController < ApplicationController
   
   def create
     @registration = Slot.new(user: current_user, lecture_id: params[:id])
+    @lecture = Lecture.find_by(id: params[:id])
+    
+    if @registration.overmax?(@lecture)
+      redirect_to lectures_path, alert: 'Unfortunately registrations for this talk are full.'
+    end
+
     if @registration.save
       redirect_to lectures_path, notice: 'You have successfully registered for this talk.'
     else
