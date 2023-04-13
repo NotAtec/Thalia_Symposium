@@ -4,7 +4,24 @@ class SlotsController < ApplicationController
   def create
     @registration = Slot.new(user: current_user, lecture_id: params[:id])
     @lecture = Lecture.find_by(id: params[:id])
-    
+    case @lecture.id
+    when 2
+      other_lecture = Lecture.find_by(id: 3)
+    when 3
+      other_lecture = Lecture.find_by(id: 2)
+    when 4
+      other_lecture = Lecture.find_by(id: 5)
+    when 5
+      other_lecture = Lecture.find_by(id: 4)
+    else
+      other_lecture = nil
+    end
+
+    if @registration.double_booking?(other_lecture, current_user)
+      redirect_to lectures_path, alert: 'You are already registered for a talk at the same time.'
+      return
+    end
+
     if @registration.overmax?(@lecture)
       redirect_to lectures_path, alert: 'Unfortunately registrations for this talk are full.'
       return
