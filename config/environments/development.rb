@@ -67,34 +67,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
-  # Devise Mailer
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-
-  # Disable Rails's static asset server (Apache or nginx will already do this)  
-  config.serve_static_assets = false
-
-  # Compress JavaScripts and CSS  
-  config.assets.compress = true
-
-  # Don't fallback to assets pipeline if a precompiled asset is missed  
-  config.assets.compile = false
-
-  # Generate digests for assets URLs  
-  config.assets.digest = true
-
-  ActionMailer::Base.smtp_settings = {
-    :user_name => Rails.application.credentials.dig(:sendgrid, :username),
-    :password => Rails.application.credentials.dig(:sendgrid, :password),
-    :domain => 'thalia.nu',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-  
 end

@@ -90,22 +90,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Use SendGrid for sending emails
-  ActionMailer::Base.smtp_settings = {
-    :user_name => Rails.application.credentials.dig(:sendgrid, :username),
-    :password => Rails.application.credentials.dig(:sendgrid, :password),
-    :domain => 'thalia.nu',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-
-  # Devise Mailer
-  config.action_mailer.default_url_options = { host: 'symposium.thalia.nu', port: 443 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
 end
