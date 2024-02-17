@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :lectures
   resources :sponsors
   resources :speakers
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "speakers#index"
 end
