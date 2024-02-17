@@ -65,6 +65,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "guard", "~> 2.18"
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
@@ -73,3 +76,9 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem "friendly_id", "~> 5.5"
+
+gem "omniauth", "~> 2.1"
+
+gem "devise", "~> 4.9"
