@@ -51,7 +51,6 @@ button {
 
 img {
     display: block;
-    vertical-align: middle;
 }
 
 /*************/
@@ -242,14 +241,6 @@ img {
 }
 
 #highlighter {
-    visibility: visible;
-}
-
-.command-input {
-    visibility: hidden;
-}
-
-.command-input:nth-child(1) {
     visibility: visible;
 }
 

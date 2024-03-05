@@ -16,11 +16,13 @@ const highlighter = "_";
 
 // Strings used in the loading of pages
 const pageNames = [
-    "Main.txt",
-    "Speakers.txt",
-    "Schedule.txt",
-    "About.txt",
+    "Main.html",
+    "Speakers.html",
+    "Schedule.html",
+    "About.html",
 ];
+
+const fileName = location.href.split("/").slice(-1); 
 
 const activeLoadBar = "[---------------------------------]";
 const inactiveLoadBar = "Requesting Access."
@@ -109,36 +111,14 @@ async function reconstructInnerHtmlID(htmlElementID, speed) {
     }
 }
 
-//  Adds the 'nextCommand' string to the command input
-//  in a way that mimics a shell terminal.
-function addCommandToShellList(nextCommand) {
-//  Never exceeding 3, but also counting the registered presses so far.
-    let currentLineIndex = Math.min(3, buttonPresses);
-    let currentCommandLine = document.getElementsByClassName("command-input")[currentLineIndex];
+//  Sets the top-most command to the one that should be displayed
+//  when accessing the page.
+function setTopCommand() {
+    let topCommand = document.getElementById("command-previous");
 
-//  Handling the case where new lines have to be constantly shown
-    if(currentLineIndex < 3) {
-        let nextCommandLine = document.getElementsByClassName("command-input")[currentLineIndex + 1];
-        nextCommandLine.style.visibility = "visible";
-
-//  Changing the position of the highlighter and
-//  updating the previous command line.
-        nextCommandLine.innerHTML = currentCommandLine.innerHTML;
-        currentCommandLine.innerText = nextCommand;
-    }
-
-//  Handling the case where all the lines have been occupied,
-//  so shifting each of the by one line (up).
-    else {
-        let lastCommands = document.getElementsByClassName("command-input");
-
-//  Shifting the contents by one line.
-        for(i = 0; i < 2; i++)
-            lastCommands[i].innerHTML = lastCommands[i + 1].innerHTML; 
-
-//  Making the last command be the most recent.
-            lastCommands[2].innerText = nextCommand;
-    }
+    //  Concatenates the required strings to dynamically set the strings to the
+    //  current page description.
+    topCommand.innerText = rootCommand + rootCat + fileName;
 }
 
 //  Writes a command to the current command line. The
@@ -146,13 +126,12 @@ function addCommandToShellList(nextCommand) {
 //  to an existing command.
 async function writeCurrentCommandToShell(commandIdent) {
 //  Briefly chaging the contents of the highlighter to achieve the animation.
+    document.getElementById("highlighter").innerText = "";
     document.getElementById("highlighter").innerText = rootCat + pageNames[commandIdent];
     await reconstructInnerHtmlID("highlighter", 50);
 
-//  Reverting to the original state, and adding the command
-//  to the list of shell-commands.
+//  Reverting to the original state.
     document.getElementById("highlighter").innerText = highlighter;
-    addCommandToShellList(rootCommand + rootCat + pageNames[commandIdent]);
 
 //  Restarting the highlighting animation.
     blink.start();
@@ -167,7 +146,10 @@ async function writeCurrentCommandToShell(commandIdent) {
 async function buttonPress(buttonIdent) {
     if(!isButtonPressed) {
 //  Breifly stopping the highlighting animation.
+
         blink.stop();
+        await resetOnInnerPageLoad();
+        
 
 //  Flaging the button as pressed and writing to the shell.
         isButtonPressed = true;
@@ -186,7 +168,7 @@ async function buttonPress(buttonIdent) {
 /* Top-loading page functions */
 /******************************/
 
-//  The functions wrok very nicely together.
+//  The functions work very nicely together.
 //  Still they need to be called only when the inner
 //  page loads/ or during. Didn't get to do it as a truly
 //  single-page application, so for showing the functionalities
@@ -234,11 +216,11 @@ async function loadingBarAnimation(speed) {
 
 //  Loads every piece of text required for switching to a new page
 //  in their specific order.
-async function onInnerPageLoad(pageIdent)  {
+async function onInnerPageLoad()  {
 //  Getting the requried loading lines and updating 
 //  the one that denotes that loaded Page.
     let loadingLines = document.getElementsByClassName("loading-output");
-    document.getElementById("page-identifier").innerText = pageNames[pageIdent];
+    document.getElementById("page-identifier").innerText = fileName;
 
 //  Wating for th loading bar to finish.
     await loadingBarAnimation(25);
@@ -266,8 +248,15 @@ async function resetOnInnerPageLoad() {
     loadBar.innerHTML = inactiveLoadBar;
 }
 
+//  Loads everything needed for the page.
+async function loadAssets() {
+    setTopCommand();
+    blink.start();
+    await onInnerPageLoad();
+}
+
 //  Onload behaviour for different elements.
-document.onload = blink.start();
+document.onload = loadAssets();
 
 //  Beahviour for buttons.
 shellButtons[0].onclick = () => {buttonPress(0)};
