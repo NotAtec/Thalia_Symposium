@@ -5,8 +5,7 @@
 const menuButton = document.getElementById("menu-icon");
 var inMenu = true;
 
-//  Every time a new scroll is detected, it compared the previous
-//  scroll position in order to determine if a change happened.
+//  Detecting scroll different than the initial one.
 const storeScroll = () => {
     let newScroll = window.scrollY;
 
@@ -33,6 +32,14 @@ const buildMenu = () => {
     }
 }
 
+//  Setts the correct page name inside the terminal.
+const setTerminal = () => {
+    let fileName = location.href.split("/").slice(-1);
+    let setter = document.getElementById('page-name');
+
+    setter.innerText = fileName;
+} 
+
 /****************************/
 /* Listneres & Initializers */
 /****************************/
@@ -44,3 +51,4 @@ menuButton.addEventListener('click', buildMenu);
 //  Initializers.
 storeScroll();
 buildMenu();
+setTerminal();
