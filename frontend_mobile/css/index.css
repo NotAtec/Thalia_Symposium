@@ -1,0 +1,260 @@
+/*******************/
+/* Main attributes */
+/*******************/
+
+body {
+/* Changing the colour to the one chosen in the pallete. */
+    background-color: #1E1E1E;
+
+/* Removing padding & margins. */
+    padding: 0;
+    margin: 0;
+}
+
+p {
+/* Setting the text-style of most paragraphs within the page. */
+    font-family: "OCR A Std";
+    color: #5FA92F;
+    font-size: 1.2rem;
+}
+
+li {
+/* Setting the text-style of most paragraphs within the page. */
+    font-family: "OCR A Std";
+    color: #ffff;
+    font-size: 1.0rem;
+}
+
+h1 {
+/* Setting the text-style of most top-headers within the page. */
+    font-family: "OCR A Std";
+    color: #ffff;
+    font-size: 1.5rem;
+
+/* Always centering headers */
+    text-align: center;
+}
+
+/********/
+/* Grid */
+/********/
+
+#container {
+/* Setting the container to cover the whole body. */
+    height: 100vh;
+    width: 100vw;
+
+/* Inheriting padding & margin. */
+    padding: inherit;
+    margin: inherit;
+
+/* Making it a grid layout for easier sepparation. */
+    display: grid;
+
+/* Changing the row/ column properties. */
+    grid-template-rows: 10% 90%;
+
+    row-gap: 2%;
+    column-gap: 0;
+}
+
+/****************/
+/* Menu Overlay */
+/****************/
+
+/* Initial overlau that only covers the top-bar */
+
+#menu-overlay {
+/* Setting the size to only cover the top-bar when the menu is not accessed */
+    height: 4vh;
+    width: 100vw;
+
+/* Setting the size to only cover the top-bar when the menu is not accessed */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+/* Ignoring overflow for the transition */
+    overflow: hidden;
+}
+
+
+#menu-background {
+/* Centering the circle in the top-left part of the overlay */
+    position: absolute;
+    top: 0;
+    left: -50vw;
+
+/* Setting the size of the initial circle */
+    height: 5vh;
+    width: 15vw;
+
+/* Making the background round */
+    border-radius: 50%;
+
+/* Colour to match the top bar */
+    background-color: #2E2F2D;
+
+/* Transition for hiding/ expanding the background */
+    transition: 0ms;
+}
+
+
+
+#menu-background > ul {
+/* Setting to start at the left-most part of the menu */
+    position: absolute;
+    top: 5vh;
+    left: 50vw;
+
+/* Removing the list circle */
+    list-style-type: none;
+}
+
+
+
+#menu-background  li {
+/* Setting top margins for the list elements */
+    margin-top: 10%;
+}
+
+
+
+html:not([data-menu='out']) #menu-overlay {
+/* Increasing the size of the overlay when the menu is accessed */
+    height: 25vh;
+}
+
+
+
+html:not([data-menu='out']) #menu-background {
+/* Increasing the size of the overlay when the menu is accessed */
+    height: 50vh;
+    width: 200vw;
+
+/* Ignoring overflow in order to create the transition effect */
+    overflow: hidden;
+
+/* Transition for hiding/ expanding the background */
+    transition: 400ms ease-in-out;
+}
+
+/***********/
+/* Top Bar */
+/***********/
+
+/* State of the top bar when no scroll was detected. */
+
+#top-bar {
+/* Setting the size of the top bar to only cover a part of the top portion of the page. */
+    height: 4vh;
+    width: 100vw;
+
+/* Setting the top bar to always sit atop the page. */
+    position: fixed;
+    top:  0;
+    left: 0;
+
+/* Changing the colour of the top-bar to make it stand out from the background. */
+    background-color: #2E2F2D;
+
+/* Setting the display to flex in order to shift the menu to the. */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+/* Overlaying this layer over everything in order to easily implement the menu. */
+    z-index: 10;
+
+/* Transition for when the bar must be hidden. */
+    transition: 250ms ease-in-out;
+}
+
+
+
+
+/* Hiding the top-bar when the user scrolls and is not within the menu. */
+
+html:not([data-scroll='0'], [data-menu='in']) #top-bar {
+/* Moving the top-bar out with negative position. */
+    top: -6vh;
+    left: 0;
+}
+
+
+
+#top-bar > h1 {
+/* Making the header take the remaining available space */
+    width: 100%;
+    
+    margin-right: 20vw;
+}
+
+/*************/
+/* Menu Icon */
+/*************/
+
+#menu-icon {
+/* Making a square for the burger menu to lie in. */
+    height: 100%;
+    width: 10%;
+
+/* Transition for when the page must highligh the menu. */
+    transition: 150ms ease-in;
+}
+
+
+
+#menu-icon > img {
+/* Limiting the image */
+    height: 90%;
+
+/* Inverting the colour of the image in order to make it more visible. */
+    filter: invert();
+
+/* Centering the image */
+    margin: auto;
+}
+
+/********************/
+/* Menu Transitions */
+/********************/
+
+.menu-closed {
+/* Initial state of the closed assets when loading the page */
+    display: block;
+}
+
+
+
+.menu-opened {
+/* Initial state of the opened assets when loading the page */
+    display: none;
+}
+
+
+
+html:not([data-menu='out']) .menu-closed {
+/* Hiding the closed assets when opening the menu. */
+    display: none;
+}
+
+
+
+html:not([data-menu='out']) .menu-opened {
+/* Showing the opened assets when opening the menu. */
+    display: block;
+}
+    
+
+
+#menu:hover {
+/* Chanign the background colour on hover. */
+    background-color: #1A1A1A;
+}
+
+
+
+/***********************/
+/* Overlay Transitions */
+/***********************/
