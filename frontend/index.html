@@ -1,56 +1,141 @@
 <html lang = "en">
 
+<!-- oh brace yourself for the choices I have made in the development of this
+     website might be terrible at the very least -->
+<!------------------------------------------------->
+<!-- going insane is my passion (: my lawwwwwwwd -->
+
 <!DOCTYPE html>
 
 <html>
-    <!-- includes and favicon -->
+
+    <!-- includes and branding -->
     <head>
+
+        <!-- tag for computing tailwind breakpoint for better flexibility -->
+        <meta name = "viewport" content = "width = device-width, initial-scale=1.0" />
+
         <!-- main page stylesheet -->
         <link rel = "stylesheet" href = "output.css">
+
+        <!-- main website icon -->
+        <link rel="icon" type="image/x-icon" href="resources/main_icon.ico">
+
+        <!-- website title for display -->
+         <title> Symposium: CAS </title>
     </head>
 
     <!-- main body of the website -->
-    <body>
-        <!-- main container for storing all the displays -->
-        <div id = "main_container">
-            <!-- main top bar for logo and extra options -->
-            <div id = "top_bar">
-                <!-- container for the top parts of the top bar -->
-                <div id = "top-container">
-                    <!-- main logo of the website -->
-                    <div id = "logo">
+    <body class = "w-screen h-screen bg-gray-100">
 
+        <!-- main container for storing all the displays -->
+        <div id = "main_container" class = "w-full h-full bg-inherit border-t-3 border-pink-700">
+
+            <!-- side bar that is present only for mobile devices, or small resolutions -->
+            <div id = "mobile_side_bar" class = "block absolute top-0 right-0 md:hidden lg:hidden z-1 w-full h-full border-t-3 border-pink-700">
+                <div id = "mobile_side_bar_options" class = "inline-block w-7/8 h-full bg-white">
+                    <div id = "mobile_side_bar_top_container" class = "flex items-center">
+                        <div id = "logo" class = "flex-grow w-full h-auto">
+                            <img src = "resources/main_logo.jpeg" class = "inline-block max-w-70 h-auto object-contain p-3">
+                        </div>
+
+                        <img src ="resources/options_courses.png" class = "flex max-w-30 max-h-22 object-contain p-5">
+                    </div>
+
+                    <div id = "mobile_side_bar_content" class = "block">
+                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Open Courses </div>
+                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Protofolio </div>
+                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Help </div>
+                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Admin Tools </div>
+                    </div>
+                </div>
+
+
+                <div id = "side_bar_end" class = "inline w-1/8 h-full bg-black opacity-70">
+
+                </div>
+            </div>
+
+            <!-- main top bar for logo and extra options -->
+            <div id = "top_bar" class = "block z-0 w-full h-auto bg-white">
+
+                <!-- container for the top parts of the top bar -->
+                <div id = "top_bar_top_container" class = "inline-flex w-full h-auto drop-shadow-lg md:drop-shadow-none lg:drop-shadow-none">
+
+                    <!-- main logo of the website -->
+                    <!------------------------------>
+                    <!-- goodness gracious god forbid anyone tries to make something
+                        responsive nowadays I am losing my mind. -->
+                    <!---------------------------------------------->
+                    <!-- somehow, the best way of making iamges look all pretty and stuff
+                        is to have them be a fixed size! Great! All my intuition out the window. -->
+                    <div id = "logo" class = "hidden md:flex lg:flex w-auto h-auto">
+                        <img src = "resources/main_logo.jpeg" class = "hidden md:block lg:block max-w-70 h-auto object-contain p-3">
+                    </div>
+
+                    <!-- side bar for providing options for mobile users -->
+                    <div id = "top_side_bar" class = "block md:hidden lg:hidden w-auto h-auto">
+                        <img src = "resources/main_side_bar.png" class = "block md:hidden lg:hidden max-w-30 max-h-15 object-contain p-3">
                     </div>
 
                     <!-- options for website navigation -->
-                    <div id = "options">
+                    <!------------------------------------>
+                    <!-- pretty sure that half of these will not be used, but maybe Easter eggs can be
+                        hidden in them? Who knows... -->
+                    <div id = "options" class = "flex justify-end items-center w-auto h-auto pr-5">
+
+                        <!-- these images all seem set in stone, but thanks to evil rendering, they
+                            scale just fine.-->
+                        <img src ="resources/options_courses.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3">
+                        <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
+                        <img src ="resources/options_beer.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3">
+                        <img src ="resources/options_notification.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3">
+                        <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
+
+                        <!-- -->
+                        <div id = "profile" class = "flex justify-center items-center w-auto h-auto pr-2">
+                            <div id = "profile_icon" class = "inline-block p-3 rounded-xl text-center text-white md:text-xl sm:text-lg  bg-pink-700"> <b>TU</b> </div>
+                            <span class = "hidden md:hidden lg:inline p-2 md:text-lg sm:text-sm"> Thalia User </span>
+                        </div>
+
+                        <!-- for some reason, the options are put after the profile; such nice devs, right? -->
+                        <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3">
+                    </div>
+                </div>
+
+                <!-- container for the bottom parts of the top bar -->
+                <div id = "top_bar_bottom_container" class = "hidden md:flex md:justify-start lg:flex lg:justify-start w-full h-auto border-1 border-gray-200 drop-shadow-lg">
+                    <!-- extra fields for navigation -->
+                    <div id = "extras" class = "w-full h-auto p-3 pl-5 md:text-xl sm:text-lg">
+                        <span class = "mx-3"> Open Courses </span>
+                        <span class = "mx-3"> Protofolio <b>⌄</b> </span>
+                        <span class = "mx-3"> Help <b>⌄</b> </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "content_container" class = "block z-0 w-full h-auto bg-inherit p-5">
+
+                <!-- the content and links to other pages -->
+                <div id = "content_side_bar">
+
+                    <!-- content selector for filtering -->
+                    <div id = "selector">
 
                     </div>
                 </div>
 
-                <!-- extra fields for navigation -->
-                 <div id = "extras">
-                    
-                 </div>
-            </div>
+                <div id = "infor_side_bar">
 
-            <!-- the content and links to other pages -->
-            <div id = "content_side_bar">
-                <!-- content selector for filtering -->
-                <div id = "selector">
+                    <!-- current announcements in place -->
+                    <div id = "announcements">
 
-                </div>
-            </div>
+                    </div>
 
-            <div id = "infor_side_bar">
-                <!-- current announcements in place -->
-                <div id = "announcements">
+                    <!-- schedule for the symposium activities -->
+                    <div id = "schedule">
 
-                </div>
-
-                <!-- schedule for the symposium activities -->
-                <div id = "schedule">
-
+                    </div>
                 </div>
             </div>
         </div>
