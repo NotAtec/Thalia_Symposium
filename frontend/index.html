@@ -5,6 +5,10 @@
 <!------------------------------------------------->
 <!-- going insane is my passion (: my lawwwwwwwd -->
 
+<!-- TODO: change the icons, so that the transition happends from colour to grayscale. -->
+<!-- TODO: center the top bar properly, and figure out the centering effect. -->
+<!-- TODO: figure out how to inver the border for hovering over icons. -->
+
 <!DOCTYPE html>
 
 <html>
@@ -32,16 +36,24 @@
         <div id = "main_container" class = "w-full h-full bg-inherit border-t-3 border-pink-700">
 
             <!-- side bar that is present only for mobile devices, or small resolutions -->
-            <div id = "mobile_side_bar" class = "block absolute top-0 right-0 md:hidden lg:hidden z-1 w-full h-full border-t-3 border-pink-700">
+            <div id = "mobile_side_bar" class = "flex justify-center absolute top-0 left-[-100%] transition-[left] duration-350 ease-in-out md:hidden lg:hidden z-2 w-full h-full border-t-3 border-pink-700">
+
+                <!-- options for better navigation within the side bar menu -->
                 <div id = "mobile_side_bar_options" class = "inline-block w-7/8 h-full bg-white">
-                    <div id = "mobile_side_bar_top_container" class = "flex items-center">
+
+                    <!-- home and selection buttons for the side bar -->
+                    <div id = "mobile_side_bar_options_top_container" class = "flex items-center">
+
+                        <!-- main logo fitted in the side bar -->
                         <div id = "logo" class = "flex-grow w-full h-auto">
                             <img src = "resources/main_logo.jpeg" class = "inline-block max-w-70 h-auto object-contain p-3">
                         </div>
 
+                        <!-- course selector button -->
                         <img src ="resources/options_courses.png" class = "flex max-w-30 max-h-22 object-contain p-5">
                     </div>
 
+                    <!-- main side bar buttons -->
                     <div id = "mobile_side_bar_content" class = "block">
                         <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Open Courses </div>
                         <div class = "block border-t-1 p-5 border-gray-200 text-2xl"> Protofolio </div>
@@ -50,11 +62,11 @@
                     </div>
                 </div>
 
-
-                <div id = "side_bar_end" class = "inline w-1/8 h-full bg-black opacity-70">
-
-                </div>
+                <!-- slice that when pressed exits the side bar view -->
+                <div id = "mobile_side_bar_exit" class = "block w-1/8 h-full bg-none"></div>
             </div>
+
+            <div id = "main_opacity_curtain" class = "hidden md:hidden lg:hidden absolute top-0 left-0 z-1 w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
 
             <!-- main top bar for logo and extra options -->
             <div id = "top_bar" class = "block z-0 w-full h-auto bg-white">
@@ -93,51 +105,77 @@
                         <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
 
                         <!-- -->
-                        <div id = "profile" class = "flex justify-center items-center w-auto h-auto pr-2">
+                        <div id = "profile" class = "flex justify-center items-center w-auto h-full pr-2 hover:cursor-pointer hover:text-sky-600">
                             <div id = "profile_icon" class = "inline-block p-3 rounded-xl text-center text-white md:text-xl sm:text-lg  bg-pink-700"> <b>TU</b> </div>
                             <span class = "hidden md:hidden lg:inline p-2 md:text-lg sm:text-sm"> Thalia User </span>
                         </div>
 
                         <!-- for some reason, the options are put after the profile; such nice devs, right? -->
-                        <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3">
+                        <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
                     </div>
                 </div>
 
                 <!-- container for the bottom parts of the top bar -->
                 <div id = "top_bar_bottom_container" class = "hidden md:flex md:justify-start lg:flex lg:justify-start w-full h-auto border-1 border-gray-200 drop-shadow-lg">
+
                     <!-- extra fields for navigation -->
                     <div id = "extras" class = "w-full h-auto p-3 pl-5 md:text-xl sm:text-lg">
-                        <span class = "mx-3"> Open Courses </span>
-                        <span class = "mx-3"> Protofolio <b>⌄</b> </span>
-                        <span class = "mx-3"> Help <b>⌄</b> </span>
+                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Open Courses </span>
+                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Protofolio <b>⌄</b> </span>
+                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Help <b>⌄</b> </span>
                     </div>
                 </div>
             </div>
 
+            <!-- main content for the website, holds the schedule, courses and improtant announcements -->
             <div id = "content_container" class = "block z-0 w-full h-auto bg-inherit p-5">
 
                 <!-- the content and links to other pages -->
-                <div id = "content_side_bar">
+                <div id = "content_side_bar" class = "block md:inline-block lg:inline-block w-95/100 h-auto p-2 bg-white border-2 border-white rounded-xl">
 
                     <!-- content selector for filtering -->
-                    <div id = "selector">
+                    <div id = "selector" class = "flex justify-start items-center w-full h-auto border-b-1 border-gray-200 pt-2">
+                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> All </span>
+                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Pinned </span>
+                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Continuous </span>
+                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> 2024/2025 </span>
+                    </div>
 
+                    <!-- course grid container for enlisting all the possible courses in an
+                         orderly manner -->
+                    <div id = "course_grid" class = "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-5">
+
+                        <!-- courses are denoted by course_<number>, the convention is kept for each
+                             memeber that it contains in order to allow for future adjustments -->
+                        <div id = "course_1" class = "block w-full h-auto border-1 border-gray-100 rounded-xl hover:text-sky-600 hover:cursor-pointer">
+                            <div id = "course_1_cover" class = "block w-full h-1/2">
+                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                            </div>
+                            <div id = "course_1_info" class = "p-3 text-xl">
+                                <span> 2425 Change this name to the actual name </span>
+
+                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                     and should technically be the only one to get changed, here this is my birthday. -->
+                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div id = "infor_side_bar">
+                <div id = "infor_side_bar" class = "block md:inline-block lg:inline-block w-95/100 h-auto">
 
                     <!-- current announcements in place -->
-                    <div id = "announcements">
+                    <div id = "announcements" class = "block w-full h-auto bg-white border-2 border-white rounded-xl">
 
                     </div>
-
                     <!-- schedule for the symposium activities -->
-                    <div id = "schedule">
 
+                    <div id = "schedule">
                     </div>
                 </div>
             </div>
         </div>
+
+        <script src = "index.js"></script>
     </body>
 </html>
