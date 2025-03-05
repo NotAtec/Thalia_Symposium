@@ -6,9 +6,11 @@ var mobile_opacity_curtain = document.getElementById("main_opacity_curtain");
 mobile_options_button.onclick = function() {
     mobile_side_bar.style.left = "0";
     mobile_opacity_curtain.style.display = "block";
+    document.body.style.overflow = "hidden"
 }
 
 mobile_options_exit.onclick = function() {
     mobile_side_bar.style.left = "-100%";
     mobile_opacity_curtain.style.display = "none";
+    document.body.style.overflow = "scroll"
 }
