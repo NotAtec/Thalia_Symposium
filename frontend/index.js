@@ -12,5 +12,5 @@ mobile_options_button.onclick = function() {
 mobile_options_exit.onclick = function() {
     mobile_side_bar.style.left = "-100%";
     mobile_opacity_curtain.style.display = "none";
-    document.body.style.overflow = "scroll"
+    document.body.style.overflow = "auto"
 }

@@ -36,10 +36,10 @@
         <div id = "main_container" class = "w-full h-full bg-inherit border-t-3 border-pink-700">
 
             <!-- side bar that is present only for mobile devices, or small resolutions -->
-            <div id = "mobile_side_bar" class = "flex justify-center absolute top-0 left-[-100%] transition-[left] duration-350 ease-in-out md:hidden lg:hidden z-2 w-full h-full border-t-3 border-pink-700">
+            <div id = "mobile_side_bar" class = "flex justify-center absolute top-0 left-[-100%] md:hidden lg:hidden z-2 w-full h-full transition-[left] duration-350 ease-in-out">
 
                 <!-- options for better navigation within the side bar menu -->
-                <div id = "mobile_side_bar_options" class = "inline-block w-7/8 h-full bg-white">
+                <div id = "mobile_side_bar_options" class = "inline-block w-7/8 h-full bg-white border-t-3 border-pink-700">
 
                     <!-- home and selection buttons for the side bar -->
                     <div id = "mobile_side_bar_options_top_container" class = "flex items-center">
@@ -66,327 +66,348 @@
                 <div id = "mobile_side_bar_exit" class = "block w-1/8 h-full bg-none"></div>
             </div>
 
-            <div id = "main_opacity_curtain" class = "hidden md:hidden lg:hidden absolute top-0 left-0 z-1 w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
+            <!-- curtain for fancy 'inactive' background while the sidebar is active -->
+            <div id = "main_opacity_curtain" class = "absolute top-0 left-0 z-1 hidden md:hidden lg:hidden w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
 
             <!-- main top bar for logo and extra options -->
-            <div id = "top_bar" class = "block z-0 w-full h-auto bg-white">
+            <div id = "top_bar" class = "z-0 block w-full h-auto bg-white">
 
-                <!-- container for the top parts of the top bar -->
-                <div id = "top_bar_top_container" class = "flex flex-row w-full h-auto drop-shadow-lg md:drop-shadow-none lg:drop-shadow-none">
+                <!-- center container to achieve the same look as brightspace -->
+                <div id = "top_bar_top_center" class = "block w-full xl:w-full 2xl:w-300 h-auto xl:mr-0 xl:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
 
-                    <!-- main logo of the website -->
-                    <!------------------------------>
-                    <!-- goodness gracious god forbid anyone tries to make something
-                        responsive nowadays I am losing my mind. -->
-                    <!---------------------------------------------->
-                    <!-- somehow, the best way of making images look all pretty and stuff
-                         is to have them be a fixed size! Great! All my intuition out the window. -->
-                    <div id = "logo" class = "hidden md:inline-block lg:inline-block w-auto h-auto">
-                        <img src = "resources/main_logo.jpeg" class = "hidden md:block lg:block max-w-70 h-auto object-contain p-3">
-                    </div>
+                    <!-- container for the top parts of the top bar -->
+                    <div id = "top_bar_top_container" class = "flex w-full h-auto md:pl-0 drop-shadow-lg md:drop-shadow-none lg:drop-shadow-none">
 
-                    <!-- side bar for providing options for mobile users -->
-                    <div id = "top_side_bar" class = "basis-2/3 md:hidden lg:hidden w-auto h-auto hover:cursor-pointer">
-                        <img src = "resources/main_side_bar.png" class = "block md:hidden lg:hidden max-w-30 max-h-15 object-contain p-3">
-                    </div>
-
-                    <!-- options for website navigation -->
-                    <!------------------------------------>
-                    <!-- pretty sure that half of these will not be used, but maybe Easter eggs can be
-                         hidden in them? Who knows... -->
-                    <div id = "options" class = "flex basis-1/2 justify-end items-center w-auto h-auto pr-5">
-
-                        <!-- these images all seem set in stone, but thanks to evil rendering, they
-                             scale just fine. -->
-                        <img src ="resources/options_courses.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
-                        <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
-                        <img src ="resources/options_beer.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
-                        <img src ="resources/options_notification.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
-                        <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
-
-                        <!-- -->
-                        <div id = "profile" class = "flex justify-center items-center w-auto h-full pr-2 hover:cursor-pointer hover:text-sky-600">
-                            <div id = "profile_icon" class = "inline-block p-3 rounded-xl text-center text-white md:text-xl sm:text-lg  bg-pink-700"> <b>TU</b> </div>
-                            <span class = "hidden md:hidden lg:inline p-2 md:text-lg sm:text-sm"> Thalia User </span>
+                        <!-- main logo of the website -->
+                        <!------------------------------>
+                        <!-- goodness gracious god forbid anyone tries to make something
+                            responsive nowadays I am losing my mind -->
+                        <!--------------------------------------------->
+                        <!-- somehow, the best way of making images look all pretty and stuff
+                             is to have them be a fixed size! Great! All my intuition out the window -->
+                        <div id = "logo" class = "hidden md:inline-block lg:inline-block flex-2 w-auto h-auto pr-1/2">
+                            <img src = "resources/main_logo.jpeg" class = "hidden md:block lg:block max-w-70 h-auto object-contain p-3">
                         </div>
-
-                        <!-- for some reason, the options are put after the profile; such nice devs, right? -->
-                        <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+    
+                        <!-- side bar for providing options for mobile users -->
+                        <div id = "top_side_bar" class = "inline-block flex-2 md:hidden lg:hidden w-auto h-auto hover:cursor-pointer">
+                            <img src = "resources/main_side_bar.png" class = "block md:hidden lg:hidden max-w-30 max-h-15 object-contain p-3">
+                        </div>
+    
+                        <!-- options for website navigation -->
+                        <!------------------------------------>
+                        <!-- pretty sure that half of these will not be used, but maybe Easter eggs can be
+                             hidden in them? Who knows... -->
+                        <div id = "options" class = "flex flex-1 md:flex-1 lg:flex-1 items-center w-auto h-auto pr-5">
+    
+                            <!-- these images all seem set in stone, but thanks to evil rendering, they
+                                 scale just fine -->
+                            <img src ="resources/options_courses.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
+                            <img src ="resources/options_beer.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img src ="resources/options_notification.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
+    
+                            <!-- profile block that grows and shrinks according to the current device dimensions -->
+                            <div id = "profile" class = "flex justify-center items-center w-auto h-full pr-2 hover:cursor-pointer hover:text-sky-600">
+                                <div id = "profile_icon" class = "inline-block p-3 rounded-xl text-center text-white md:text-xl sm:text-lg  bg-pink-700"> <b>TU</b> </div>
+                                <span class = "hidden md:hidden lg:inline p-2 md:text-lg sm:text-sm"> Thalia User </span>
+                            </div>
+    
+                            <!-- for some reason, the options are put after the profile; such nice devs, right? -->
+                            <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                        </div>
                     </div>
                 </div>
 
-                <!-- container for the bottom parts of the top bar -->
-                <div id = "top_bar_bottom_container" class = "hidden md:flex md:justify-start lg:flex lg:justify-start w-full h-auto border-1 border-gray-200 drop-shadow-lg">
+                <div id = "top_bar_border" class = "block w-full h-auto border-1 border-gray-200 drop-shadow-lg"">
 
-                    <!-- extra fields for navigation -->
-                    <div id = "extras" class = "w-full h-auto p-3 pl-5 md:text-xl sm:text-lg">
-                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Open Courses </span>
-                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Protofolio <b>⌄</b> </span>
-                        <span class = "hover:text-sky-600 hover:cursor-pointer"> Help <b>⌄</b> </span>
+                    <div id = "top_bar_bottom_center" class = "block w-full xl:w-full 2xl:w-300 h-auto xl:mr-0 xl:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
+
+                        <!-- container for the bottom parts of the top bar -->
+                        <div id = "top_bar_bottom_container" class = "hidden md:flex md:justify-start lg:flex lg:justify-start w-full h-auto">
+    
+                            <!-- extra fields for navigation -->
+                            <div id = "extras" class = "w-full h-auto p-3 pl-5 md:text-xl sm:text-lg">
+                                <span class = "hover:text-sky-600 hover:cursor-pointer"> Open Courses </span>
+                                <span class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Protofolio <b>⌄</b> </span>
+                                <span class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Help <b>⌄</b> </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- main content for the website, holds the schedule, courses and improtant announcements -->
-            <div id = "content_container" class = "block z-0 w-full h-auto bg-inherit p-5">
+            <div id = "content_container_center" class = "block w-full lg:w-full xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
 
-                <!-- the content and links to other pages -->
-                <div id = "content_side_bar" class = "block md:inline-block lg:inline-block w-95/100 h-auto p-2 bg-white border-2 border-white rounded-xl">
+                <!-- main content for the website, holds the schedule, courses and improtant announcements -->
+                <div id = "content_container" class = "z-0 block md:flex lg:flex md:gap-20 lg:gap-20 w-full h-auto bg-inherit p-5">
 
-                    <!-- content selector for filtering -->
-                    <div id = "selector" class = "flex justify-start items-center w-full h-auto border-b-1 border-gray-200 pt-2">
-                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> All </span>
-                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Pinned </span>
-                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Continuous </span>
-                        <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> 2024/2025 </span>
+                    <!-- the content and links to other pages -->
+                    <div id = "content_side_bar_container" class = "block md:iniline-block lg:iniline-block w-95/100 md:w-2/3 lg:w-2/3">
+
+                        <!-- actual content of the page -->
+                        <div id = "content_side_bar" class = "block w-full h-auto p-2 pb-10 bg-white border-2 border-white rounded-xl drop-shadow-none md:drop-shadow-sm lg:drop-shadow-sm">
+
+                            <!-- content selector for filtering -->
+                            <div id = "selector" class = "flex justify-start items-center w-full h-auto border-b-1 border-gray-200 pt-2">
+                                <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> All </span>
+                                <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Pinned </span>
+                                <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Continuous </span>
+                                <span class = "p-3 hover:text-sky-600 hover:cursor-pointer"> 2024/2025 </span>
+                            </div>
+        
+                            <!-- course grid container for enlisting all the possible courses in an
+                                orderly manner -->
+                            <!-------------------->
+                            <!-- just revert to javascript when anything in CSS decies to die -->
+                            <div id = "course_grid" class = "grid grid-cols-2 grid-rows-[auto] lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-5 pt-5">
+        
+                                <!-- courses are denoted by course_<number>, the convention is kept for each
+                                    memeber that it contains in order to allow for future adjustments -->
+                                <div id = "course_1" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_1_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_1_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+        
+                                <div id = "course_2" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_2_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_2_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+        
+                                <div id = "course_3" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_3_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_3_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+        
+                                <div id = "course_4" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_4_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_4_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+        
+                                <div id = "course_5" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_5_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_5_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+        
+                                <div id = "course_6" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+        
+                                    <!-- the cover for the course to be displayed -->
+                                    <div id = "course_6_cover" class = "block w-full h-1/2">
+                                        <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
+                                    </div>
+        
+                                    <!-- information about the course, code and name -->
+                                    <div id = "course_6_info" class = "p-3 text-xl">
+                                        <span> 2425 Change this name to the actual name </span>
+        
+                                        <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
+                                            and should technically be the only one to get changed, here this is my birthday. -->
+                                        <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- course grid container for enlisting all the possible courses in an
-                         orderly manner -->
-                    <!-------------------->
-                    <!-- TODO: figure out why the movement transition does not want to work -->
-                    <div id = "course_grid" class = "grid grid-cols-2 grid-rows-[auto] md:grid-cols-2 lg:grid-cols-3 gap-5 pt-5">
+                    <!-- right sidebar for displaying announcements and the calendar -->
+                    <div id = "info_side_bar" class = "block md:iniline-block lg:iniline-block mt-7 md:mt-0 lg:mt-0 w-95/100 md:w-1/3 lg:w-1/3 h-auto">
 
-                        <!-- courses are denoted by course_<number>, the convention is kept for each
-                             memeber that it contains in order to allow for future adjustments -->
-                        <div id = "course_1" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+                        <!-- current announcements in place -->
+                        <div id = "announcements" class = "block w-full h-auto p-5 bg-white border-2 border-white rounded-xl drop-shadow-none md:drop-shadow-sm lg:drop-shadow-sm">
 
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_1_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
+                            <!-- title for the announcement block-->
+                            <span class = "block pb-5 text-base"> <b>Announcements</b> </span>
 
-                            <!-- information about the course, code and name -->
-                            <div id = "course_1_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
-
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
+                            <!-- actual announcement to be displayed -->
+                            <div id = "announcement" class = "block p-7 border-1 border-gray-200 text-lg rounded-xl"> There are no announcements to display. </div>
                         </div>
 
-                        <div id = "course_2" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
+                        <!-- schedule for the symposium activities -->
+                        <!------------------------------------------->
+                        <!-- the atrocities commited here shall remain unbeknownst to
+                            man kind and its relatives -->
+                        <div id = "schedule" class = "block w-full h-auto mt-7 p-5 bg-white border-2 border-white rounded-xl drop-shadow-none md:drop-shadow-sm lg:drop-shadow-sm">
 
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_2_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
+                            <!-- title for the schedule block-->
+                            <span class = "block pb-5 text-base"> <b>Schedule</b> </span>
 
-                            <!-- information about the course, code and name -->
-                            <div id = "course_2_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
+                            <!-- day marker -->
+                            <div id = "current_day" class = "block p-4 border-1 border-gray-200 text-base rounded-xl"> <b>Someday, January 1, 1970</b> </div>
 
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
-                        </div>
-
-                        <div id = "course_3" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
-
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_3_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
-
-                            <!-- information about the course, code and name -->
-                            <div id = "course_3_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
-
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
-                        </div>
-
-                        <div id = "course_4" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
-
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_4_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
-
-                            <!-- information about the course, code and name -->
-                            <div id = "course_4_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
-
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
-                        </div>
-
-                        <div id = "course_5" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
-
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_5_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
-
-                            <!-- information about the course, code and name -->
-                            <div id = "course_5_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
-
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
-                        </div>
-
-                        <div id = "course_6" class = "relative block w-full h-auto border-1 border-gray-100 rounded-xl transition-all duration-200 ease-in-out course">
-
-                            <!-- the cover for the course to be displayed -->
-                            <div id = "course_6_cover" class = "block w-full h-1/2">
-                                <img src = "resources/test_cover.jpg" class = "grid_course w-full h-full object-cover rounded-t-xl">
-                            </div>
-
-                            <!-- information about the course, code and name -->
-                            <div id = "course_6_info" class = "p-3 text-xl">
-                                <span> 2425 Change this name to the actual name </span>
-
-                                <!-- only the part before the dot should be changed, the IP-<number> can be whatever 
-                                     and should technically be the only one to get changed, here this is my birthday. -->
-                                <span class = "block w-full h-auto text-sm text-gray-500"> NWI-IP1104-2025-KW3-V • 2024/2025 </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- right sidebar for displaying announcements and the calendar-->
-                <div id = "info_side_bar" class = "block mt-7 md:inline-block md:mt-0 lg:mt-0 lg:inline-block w-95/100 h-auto">
-
-                    <!-- current announcements in place -->
-                    <div id = "announcements" class = "block w-full h-auto p-5 bg-white border-2 border-white rounded-xl">
-
-                        <!-- title for the announcement block-->
-                        <span class = "block pb-5 text-base"> <b>Announcements</b> </span>
-
-                        <!-- actual announcement to be displayed -->
-                         <div id = "announcement" class = "block p-7 border-1 border-gray-200 text-lg rounded-xl"> There are no announcements to display. </div>
-                    </div>
-
-                    <!-- schedule for the symposium activities -->
-                    <div id = "schedule" class = "block w-full h-auto mt-7 p-5 bg-white border-2 border-white rounded-xl">
-
-                        <!-- title for the schedule block-->
-                        <span class = "block pb-5 text-base"> <b>Schedule</b> </span>
-
-                        <!-- day marker -->
-                        <div id = "current_day" class = "block p-4 border-1 border-gray-200 text-base rounded-xl"> <b>Someday, January 1, 1970</b> </div>
-
-                        <!-- toggleable list of upcomming events -->
-                        <div id = "upcomming" class = "block mt-4 p-4 bg-inherit border-gray-200 text-base rounded-xl"> 
-                            <div id = "upcomming title" class = "sticky top-0 flex flex-row p-3 pl-0 bg-inherit rounded-b-xl">
-                                <span class = "basis-24/25"> <b>Upcomming events</b> </span>
-                                <img src = "resources/options_list.png" class = "basis-1/25 max-w-4 max-h-auto object-contain rotate-90 hover:cursor-pointer"></img>
-                            </div>
-
-                            <!-- list of all upcomming events in a simple grid pattern -->
-                            <div id = "event_list" class = "grid grid-cols-1 w-full grid-rows-[auto] border-t-1 border-gray-200">
-
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_1" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
-                                    </div>
-
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
+                            <!-- toggleable list of upcomming events -->
+                            <div id = "upcomming" class = "block mt-4 p-4 bg-inherit border-1 border-gray-200 rounded-xl text-base"> 
+                                <div id = "upcomming title" class = "sticky top-0 flex flex-row p-3 pl-0 bg-inherit rounded-b-xl">
+                                    <span class = "basis-24/25"> <b>Upcomming events</b> </span>
+                                    <img src = "resources/options_list.png" class = "basis-1/25 max-w-4 max-h-auto object-contain rotate-90 hover:cursor-pointer"></img>
                                 </div>
 
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_1" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                <!-- list of all upcomming events in a simple grid pattern -->
+                                <div id = "event_list" class = "grid grid-cols-1 w-full grid-rows-[auto] border-t-1 border-gray-200">
+
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_1" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
+
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
 
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
-                                </div>
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_1" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
 
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_2" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
-                                    </div>
-
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
-                                </div>
-
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_3" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
 
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
-                                </div>
-                                
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_4" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_2" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
+
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
 
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
-                                </div>
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_3" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
 
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_5" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_4" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
+
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
 
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
-                                    </div>
-                                </div>
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_5" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
 
-                                <!-- this date should always stay the same, after all it should be just the symposium date -->
-                                <div id = "event_6" class = "flex items-center w-full h-auto p-5 bg-inherit event">
-                                    <div class = "inline-block w-auto h-full p-2">
-                                        <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
-                                        <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
 
-                                    <!-- actual info about the event, simply change the time and name of the event -->
-                                    <div class = "inline-block w-auto h-full p-2 pt-3">
-                                        <span class = "block text-md"> <b>10:00</b> </span>
-                                        <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
-                                        <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                    <!-- this date should always stay the same, after all it should be just the symposium date -->
+                                    <div id = "event_6" class = "flex items-center w-full h-auto p-5 bg-inherit event">
+                                        <div class = "inline-block w-auto h-full p-2">
+                                            <span class = "block p-1 text-lg border-b-1 border-gray-200"> APR </span>
+                                            <span class = "flex justify-center p-1 text-lg"> <b>1</b> </span>
+                                        </div>
+
+                                        <!-- actual info about the event, simply change the time and name of the event -->
+                                        <div class = "inline-block w-auto h-full p-2 pt-3">
+                                            <span class = "block text-md"> <b>10:00</b> </span>
+                                            <span class = "block text-lg"> <b>Symposium Event: Something... </b></span>
+                                            <span class = "block text-md"> 2425 Thalia Symposium (KV3 V) </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
