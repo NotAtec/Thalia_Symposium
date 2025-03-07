@@ -639,6 +639,10 @@
   .opacity-50 {
     opacity: 50%;
   }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
@@ -880,6 +884,16 @@
       gap: calc(var(--spacing) * 20);
     }
   }
+  .md\:gap-\[5\%\] {
+    @media (width >= 48rem) {
+      gap: 5%;
+    }
+  }
+  .md\:gap-\[10\%\] {
+    @media (width >= 48rem) {
+      gap: 10%;
+    }
+  }
   .md\:pr-0 {
     @media (width >= 48rem) {
       padding-right: calc(var(--spacing) * 0);
@@ -1081,6 +1095,16 @@
       gap: calc(var(--spacing) * 20);
     }
   }
+  .lg\:gap-\[5\%\] {
+    @media (width >= 64rem) {
+      gap: 5%;
+    }
+  }
+  .lg\:gap-\[10\%\] {
+    @media (width >= 64rem) {
+      gap: 10%;
+    }
+  }
   .lg\:drop-shadow-lg {
     @media (width >= 64rem) {
       --tw-drop-shadow: drop-shadow(var(--drop-shadow-lg));
@@ -1200,6 +1224,61 @@
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
 }
 @property --tw-outline-style {
   syntax: "*";

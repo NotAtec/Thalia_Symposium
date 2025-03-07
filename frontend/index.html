@@ -4,9 +4,12 @@
      website might be terrible at the very least -->
 <!------------------------------------------------->
 <!-- going insane is my passion (: my lawwwwwwwd -->
+<!------------------------------------------------->
+<!-- dude if you inspect this; why? just why? oh, Lord! I still need to do
+     the pop-ups - god made pretty websites to torture us! -->
 
-<!-- TODO: change the icons, so that the transition happends from colour to grayscale. -->
-<!-- TODO: center the top bar properly, and figure out the centering effect. -->
+<!-- TODO: WHY IN THE NAME OF CHRIST CAN YOU SCROLL TO THE RIGHT?? -->
+<!-- TODO: change the icons, so that the transition happends from grayscale to colour. -->
 <!-- TODO: figure out how to invert the border for hovering over icons. -->
 
 <!DOCTYPE html>
@@ -73,10 +76,10 @@
             <div id = "top_bar" class = "z-0 block w-full h-auto bg-white">
 
                 <!-- center container to achieve the same look as brightspace -->
-                <div id = "top_bar_top_center" class = "block w-full xl:w-full 2xl:w-300 h-auto xl:mr-0 xl:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
+                <div id = "top_bar_top_center" class = "block w-full lg:w-full xl:w-300 2xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 xl:mr-auto xl:ml-auto 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
 
                     <!-- container for the top parts of the top bar -->
-                    <div id = "top_bar_top_container" class = "flex w-full h-auto md:pl-0 drop-shadow-lg md:drop-shadow-none lg:drop-shadow-none">
+                    <div id = "top_bar_top_container" class = "flex w-full h-auto pl-5 md:pl-0 drop-shadow-lg md:drop-shadow-none lg:drop-shadow-none">
 
                         <!-- main logo of the website -->
                         <!------------------------------>
@@ -120,9 +123,11 @@
                     </div>
                 </div>
 
-                <div id = "top_bar_border" class = "block w-full h-auto border-1 border-gray-200 drop-shadow-lg"">
+                <!-- handles the border and drop shadow for the top bar -->
+                <div id = "top_bar_border" class = "block w-full h-auto border-1 border-gray-200 drop-shadow-lg">
 
-                    <div id = "top_bar_bottom_center" class = "block w-full xl:w-full 2xl:w-300 h-auto xl:mr-0 xl:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
+                    <!-- centers the bottom part of the top bar -->
+                    <div id = "top_bar_bottom_center" class = "block w-full xl:w-300 2xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 xl:mr-auto xl:ml-auto 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
 
                         <!-- container for the bottom parts of the top bar -->
                         <div id = "top_bar_bottom_container" class = "hidden md:flex md:justify-start lg:flex lg:justify-start w-full h-auto">
@@ -138,10 +143,11 @@
                 </div>
             </div>
 
-            <div id = "content_container_center" class = "block w-full lg:w-full xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
+            <!-- centers the content container in a brighspace-ish wayy -->
+            <div id = "content_container_center" class = "block w-full lg:w-full xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 xl:mr-auto xl:ml-auto 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
 
                 <!-- main content for the website, holds the schedule, courses and improtant announcements -->
-                <div id = "content_container" class = "z-0 block md:flex lg:flex md:gap-20 lg:gap-20 w-full h-auto bg-inherit p-5">
+                <div id = "content_container" class = "z-0 block md:flex lg:flex md:gap-[5%] lg:gap-[5%] w-full h-auto bg-inherit p-5">
 
                     <!-- the content and links to other pages -->
                     <div id = "content_side_bar_container" class = "block md:iniline-block lg:iniline-block w-95/100 md:w-2/3 lg:w-2/3">
