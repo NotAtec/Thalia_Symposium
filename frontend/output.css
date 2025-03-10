@@ -2411,6 +2411,12 @@
       padding-left: calc(var(--spacing) * 5);
     }
   }
+  .\32 xl\:text-5xl {
+    @media (width >= 96rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
 }
 @property --tw-translate-x {
   syntax: "*";

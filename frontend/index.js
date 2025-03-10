@@ -1,25 +1,44 @@
-//  wonderful globals aren't they hm?
+//  javascript my beloved - it's the ONLY enjoyable part from this mess,
+//  have you even seen my tags in the HTML doc????
+
+/********************************/
+/* Globally used document items */
+/********************************/
+
+//  mobile relevant elements.
 var mobile_options_button = document.getElementById("top_side_bar");
 var mobile_options_exit = document.getElementById("mobile_side_bar_exit");
 var mobile_side_bar = document.getElementById("mobile_side_bar");
 var mobile_opacity_curtain = document.getElementById("main_opacity_curtain");
 
+//  course grid elemnts for better displays.
 var all_link = document.getElementById("all");
 var speakers_link = document.getElementById("speakers");
 var companies_link = document.getElementById("companies");
 
+//  page switch relevant elements.
 var banner = document.getElementById("course_banner");
 var banner_img = document.getElementById("course_img_banner");
 var grid = document.getElementById("course_grid");
 var names = document.getElementsByClassName("course_name");
 var info = document.getElementById("course_info");
 var text = document.getElementById("course_text");
+var title = document.getElementById("course_title");
+var author = document.getElementById("course_author");
+var selector = document.getElementById("selector");
 
+//  button relevant elements.
 var main_home_button = document.getElementById("logo")
 var mobile_home_button = document.getElementById("mobile_logo")
 
 //  you could've got them by the class 'class' - whatevs, I'll fix it later.
+//  My laziness knows no bounds anymore. I might just leave it like this (:
 var courses = [document.getElementById("course_1"), document.getElementById("course_2"), document.getElementById("course_3"), document.getElementById("course_4"), document.getElementById("course_5"), document.getElementById("course_6")];
+
+
+/*******************************/
+/* Content for course Switches */
+/*******************************/
 
 //  oh the atrocities I am about to commit here are so new that they don't even
 //  have a name at this point, God forgive me.
@@ -49,6 +68,14 @@ const formorrow_text =
 const tba_text =
     ``
 
+//  titles for each announcements
+const johan_title = "Somebody once told me...";
+const marije_title = "Evil";
+const luca_title = "";
+const nedap_title = "";
+const formorrow_title = "";
+const tba_title = ""
+
 //  the source for the course cover image.
 const johan_cover_dir = "resources/test_cover.jpg"
 const marije_cover_dir = "resources/test_switch_cover.jpg"
@@ -58,8 +85,12 @@ const formorrow_cover_dir = "resources/test_cover.jpg"
 const tba_cover_dir = "resources/test_cover.jpg"
 
 
+/*******************************/
+/* Simple Conversion Functions */
+/*******************************/
+
 //  converts a course index to its associated display when clicked.
-function index_to_tex(course_index) {
+function index_to_text(course_index) {
     switch(course_index) {
         case 1:
             return johan_text;
@@ -104,27 +135,91 @@ function index_to_cover(course_index) {
     }
 }
 
-//  here comes the fun part!
+//  converts a course index to its associated title when clicked.
+function index_to_title(course_index) {
+    switch(course_index) {
+        case 1:
+            return johan_title;
+
+        case 2:
+            return marije_title;
+
+        case 3:
+            return luca_title;
+
+        case 4:
+            return nedap_title;
+
+        case 5:
+            return formorrow_title;
+
+        case 6:
+            return tba_title;
+    }  
+}
+
+//  converts a course index to the corresponding author for the course.
+function index_to_author(course_index) {
+    switch(course_index) {
+        case 1:
+            return "Johan Jeuring posted on Mar 10, 2025 14:21";
+
+        case 2:
+            return "Marije Goudriaan posted on Mar 7, 2025 10:26";
+
+        case 3:
+            return "Luca Consoli posted on Mar 7, 2025 17:05";
+
+        case 4:
+            return "Nedap Team posted on Mar 9, 2025 19:56";
+
+        case 5:
+            return "Formorrow Team posted on Mar 5, 2025 20:37";
+
+        case 6:
+            return "TBA Team posted on Mar 10, 2025 14:20";
+    }  
+}
+
+
+/********************/
+/* General Handlers */
+/********************/
+
+//  assigning a handle for each course in the course grid.
+//  
+//  Here comes the fun part!
+//  Too lazy to initialize each course by hand, so I'm using a for loop here.
 courses.forEach(course => {
     course.onclick = function () { course_switch_handler(Number(course.id.slice(-1))) };
+    course.onmouseover = function () { course.style.cursor = "pointer" };
 })
+
+//  assigning a proper handler for the main home button.
+main_home_button.onclick = home_switch_handler;
 
 
 /*******************/
 /* Switch Handlers */
 /*******************/
 
+//  handles switching from the main page to the selected course view.
 function course_switch_handler(course_index) {
     grid.style.display = "none";
+    selector.style.display = "none";
     banner.style.display = "block";
     info.style.display = "block";
 
     banner_img.src = index_to_cover(course_index);
-    text.innerHTML = index_to_tex(course_index);
+    text.innerHTML = index_to_text(course_index);
+    title.innerHTML = index_to_title(course_index);
+    author.innerHTML = index_to_author(course_index);
 }
 
+//  handles switching from any other view back to the initial home view.
 function home_switch_handler() {
     grid.style.display = "grid";
+    selector.style.display = "block";
     banner.style.display = "none";
     info.style.display = "none";
 
@@ -133,19 +228,22 @@ function home_switch_handler() {
     document.body.style.overflow = "auto";
 }
 
+
 /*******************/
 /* Mobile Handlers */
 /*******************/
 
-main_home_button.onclick = home_switch_handler;
+//  assigning a proper handler for the mobile home button
 mobile_home_button.onclick = home_switch_handler;
 
+//  handler for the mobile side bar view.
 mobile_options_button.onclick = function() {
     mobile_side_bar.style.left = "0";
     mobile_opacity_curtain.style.display = "block";
     document.body.style.overflow = "hidden";
 }
 
+//  handler for hiding the mobile side bar.
 mobile_options_exit.onclick = function() {
     mobile_side_bar.style.left = "-100%";
     mobile_opacity_curtain.style.display = "none";
@@ -156,12 +254,16 @@ mobile_options_exit.onclick = function() {
 /* Course Grid Handlers */
 /************************/
 
+//  all course selector handler; simply display all the courses in the
+//  course grid.
 all_link.onclick = function () {
     courses.forEach(course => {
         course.style.display = "";
     });
 }
 
+//  speaker course selector handler; showing only the first three courses
+//  that correspond to their assigned speakers.
 speakers_link.onclick = function () { 
     for (let i = 0; i < courses.length; i++) {
         var course = courses[i];
@@ -173,6 +275,8 @@ speakers_link.onclick = function () {
     }
 }
 
+//  companies course selector handler; showing only the last three courses
+//  that correspond to their assigned companies.
 companies_link.onclick = function () {
     for (let i = 0; i < courses.length; i++) {
         var course = courses[i];
