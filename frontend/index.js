@@ -36,7 +36,24 @@ var event_container = document.getElementById("upcomming");
 var main_home_button = document.getElementById("logo_button")
 var mobile_home_button = document.getElementById("mobile_logo_button")
 
-//  you could've got them by the class 'class' - whatevs, I'll fix it later.
+//  easter egg buttons for fun!
+var courses_button = document.getElementById("courses_button");
+var beer_button = document.getElementById("beer_button");
+var notification_button = document.getElementById("notification_button");
+var settings_button = document.getElementById("settings_button");
+var portofolio_button = document.getElementById("protofolio_button");
+var help_button = document.getElementById("help_button");
+var mobile_settings_button = document.getElementById("mobile_settings_button");
+var mobile_portofolio_button = document.getElementById("mobile_portofolio_button");
+var mobile_help_button = document.getElementById("mobile_help_button");
+var profile = document.getElementById("profile");
+
+//  easter egg relevant elements.
+var easter_egg_opacity_curtain = document.getElementById("easter_egg_opacity_curtain");
+var easter_egg = document.getElementById("easter_egg_curtain");
+var easter_egg_img = document.getElementById("easter_egg_img");
+
+//  you could've got them by the class 'course' - whatevs, I'll fix it later.
 //  My laziness knows no bounds anymore. I might just leave it like this (:
 var courses = [document.getElementById("course_1"), document.getElementById("course_2"), document.getElementById("course_3"), document.getElementById("course_4"), document.getElementById("course_5"), document.getElementById("course_6")];
 
@@ -198,6 +215,27 @@ function index_to_author(course_index) {
 /* General Handlers */
 /********************/
 
+//  assigning easter egg handlers for each unused button.
+profile.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
+beer_button.onclick = function() {easter_egg_dsiplay("resources/easter_egg_2.jpg"); }
+courses_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
+notification_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
+settings_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
+portofolio_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
+help_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
+mobile_settings_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
+mobile_portofolio_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
+mobile_help_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
+
+//  assigning an escape handler for the shown easter_egg.
+easter_egg_img.onclick = function() {
+    easter_egg_opacity_curtain.style.display = "none";
+    easter_egg.style.display = "none";
+    document.body.style.overflowY  = "scroll";
+    document.body.style.overflowX = "hidden";
+}
+
+
 //  assigning a handle for each course in the course grid.
 //  
 //  Here comes the fun part!
@@ -231,6 +269,14 @@ event_list_button.onclick = function() {
     display_schedule = !display_schedule;
 }
 
+function easter_egg_dsiplay(easter_egg_source) {
+    easter_egg_img.src = easter_egg_source;
+
+    easter_egg_opacity_curtain.style.display = "block";
+    easter_egg.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
 
 /*******************/
 /* Switch Handlers */
@@ -257,7 +303,7 @@ function home_switch_handler() {
     info.style.display = "none";
 
     mobile_side_bar.style.left = "-100%";
-    mobile_opacity_curtain.style.display = "none";
+    mobile_opacity_curtain.style.opacity = "none";
     document.body.style.overflowY  = "scroll";
     document.body.style.overflowX = "hidden";
 }

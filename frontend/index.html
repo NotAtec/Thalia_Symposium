@@ -11,11 +11,9 @@
 <!-- my man stayed up for 48 hours straigth to tell you to RUN!!!!!! Slets go!
      The man behind you says hi ;) -->
 
-<!-- TODO: change the icons, so that the transition happends from grayscale to colour. -->
+<!-- TODO: change the icons, so that the transition happends from grayscale to colour. 
+           Do this at home after you're not dying-->
 <!-- TODO: figure out how to invert the border for hovering over icons. -->
-<!-- TODO: change size breakpoints for your own sanity. -->
-<!-- TODO: why don't animations work. -->
-<!-- TODO: add popus for Easter-eggs and unsued buttons -->
 
 <!DOCTYPE html>
 
@@ -63,10 +61,10 @@
 
                     <!-- main side bar buttons -->
                     <div id = "mobile_side_bar_content" class = "block">
-                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Open Courses </div>
-                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Protofolio </div>
-                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Help </div>
-                        <div class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Admin Tools </div>
+                        <a href = "https://ru.osiris-student.nl/onderwijscatalogus/extern/cursus?collegejaar=huidig&taal=en&cursuscode=NWI-IBC016"> <div class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Open Courses </div> </a>
+                        <div id = "mobile_portofolio_button" class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Protofolio </div>
+                        <div id = "mobile_help_button" class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Help </div>
+                        <div id = "mobile_settings_button" class = "block border-t-1 p-5 border-gray-200 text-2xl hover:text-sky-600 hover:bg-sky-100 hover:cursor-pointer"> Admin Tools </div>
                     </div>
                 </div>
 
@@ -75,7 +73,12 @@
             </div>
 
             <!-- curtain for fancy 'inactive' background while the sidebar is active -->
-            <div id = "main_opacity_curtain" class = "absolute top-0 left-0 z-1 hidden md:hidden lg:hidden w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
+            <div id = "main_opacity_curtain" class = "z-1 absolute top-0 left-0 hidden md:hidden lg:hidden w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
+
+            <div id = "easter_egg_opacity_curtain" class = "z-3 absolute top-0 left-0 hidden w-full h-full bg-black opacity-50 transition-[opacity] duration-350 ease-in-out"></div>
+            <div id = "easter_egg_curtain" class = "z-4 absolute top-1/3 left-1/3 hidden">
+                <img id = "easter_egg_img" src = "resources/easter_egg_1.jpg" class = "block w-1/2 h-1/2 hover:cursor-pointer">
+            </div>
 
             <!-- main top bar for logo and extra options -->
             <div id = "top_bar" class = "z-0 block w-full h-auto bg-white">
@@ -110,10 +113,10 @@
     
                             <!-- these images all seem set in stone, but thanks to evil rendering, they
                                  scale just fine -->
-                            <img src ="resources/options_courses.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img id = "courses_button" src ="resources/options_courses.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
                             <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
-                            <img src ="resources/options_beer.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
-                            <img src ="resources/options_notification.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img id = "beer_button" src ="resources/options_beer.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img id = "notification_button" src = "resources/options_notification.png" class = "inline-block md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
                             <img src ="resources/options_tiler.png" class = "hidden md:hidden lg:inline-block max-w-30 max-h-8 object-contain">
     
                             <!-- profile block that grows and shrinks according to the current device dimensions -->
@@ -123,7 +126,7 @@
                             </div>
     
                             <!-- for some reason, the options are put after the profile; such nice devs, right? -->
-                            <img src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
+                            <img id = "settings_button" src = "resources/options_settings.png" class = "hidden md:inline-block lg:inline-block max-w-30 max-h-15 object-contain p-3 hover:cursor-pointer">
                         </div>
                     </div>
                 </div>
@@ -139,9 +142,9 @@
     
                             <!-- extra fields for navigation -->
                             <div id = "extras" class = "w-full h-auto p-3 pl-5 md:text-xl sm:text-lg">
-                                <span class = "hover:text-sky-600 hover:cursor-pointer"> Open Courses </span>
-                                <span class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Portfolio <b>⌄</b> </span>
-                                <span class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Help <b>⌄</b> </span>
+                                <a href = "https://ru.osiris-student.nl/onderwijscatalogus/extern/cursus?collegejaar=huidig&taal=en&cursuscode=NWI-IBC016"> <span class = "hover:text-sky-600 hover:cursor-pointer"> Open Courses </span> </a>
+                                <span id = "protofolio_button" class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Portfolio <b>⌄</b> </span>
+                                <span id = "help_button" class = "pl-3 hover:text-sky-600 hover:cursor-pointer"> Help <b>⌄</b> </span>
                             </div>
                         </div>
                     </div>
@@ -172,9 +175,9 @@
 
                             <!-- content selector for filtering -->
                             <div id = "selector" class = "flex justify-start items-center w-full h-auto border-b-1 border-gray-200 pt-2">
-                                <span id="all"       class = "p-3 hover:text-sky-600 hover:cursor-pointer"> All </span>
-                                <span id="speakers"  class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Speakers </span>
-                                <span id="companies" class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Companies </span>
+                                <span id ="all" class = "p-3 hover:text-sky-600 hover:cursor-pointer"> All </span>
+                                <span id ="speakers" class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Speakers </span>
+                                <span id ="companies" class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Companies </span>
                             </div>
         
                             <!-- course info container for dsiplaying the information about the selected course -->
