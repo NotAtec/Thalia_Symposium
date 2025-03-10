@@ -6,7 +6,7 @@
 /********************************/
 
 //  mobile relevant elements.
-var mobile_options_button = document.getElementById("top_side_bar");
+var mobile_options_button = document.getElementById("top_side_bar_button");
 var mobile_options_exit = document.getElementById("mobile_side_bar_exit");
 var mobile_side_bar = document.getElementById("mobile_side_bar");
 var mobile_opacity_curtain = document.getElementById("main_opacity_curtain");
@@ -27,13 +27,25 @@ var title = document.getElementById("course_title");
 var author = document.getElementById("course_author");
 var selector = document.getElementById("selector");
 
+// event relevant elements
+var event_list = document.getElementById("event_list");
+var event_list_button = document.getElementById("upcomming_button")
+var event_container = document.getElementById("upcomming");
+
 //  button relevant elements.
-var main_home_button = document.getElementById("logo")
-var mobile_home_button = document.getElementById("mobile_logo")
+var main_home_button = document.getElementById("logo_button")
+var mobile_home_button = document.getElementById("mobile_logo_button")
 
 //  you could've got them by the class 'class' - whatevs, I'll fix it later.
 //  My laziness knows no bounds anymore. I might just leave it like this (:
 var courses = [document.getElementById("course_1"), document.getElementById("course_2"), document.getElementById("course_3"), document.getElementById("course_4"), document.getElementById("course_5"), document.getElementById("course_6")];
+
+/************************/
+/* Globally used states */
+/************************/
+
+//  variable for determining whether to hide or display the current schedule.
+var display_schedule = true;
 
 
 /*******************************/
@@ -52,7 +64,7 @@ const johan_text =
 
 const marije_text =
     `3 The LORD appeared to us in the past, saying: “I have loved you with an everlasting love; I have drawn you with unfailing kindness.
-     4 I will build you up again, and you, Virgin Israel, will be rebuilt. Again you will take up your timbrels and go out to dance with the joyful.
+     4 I will build you up again, and you, Virgin safwfaw, will be rebuilt. Again you will take up your timbrels and go out to dance with the joyful.
      5 Again you will plant vineyards on the hills of Samaria; the farmers will plant them and enjoy their fruit.
      6 There will be a day when watchmen cry out on the hills of Ephraim, ‘Come, let us go up to Zion, to the LORD our God.’ ”`
 
@@ -192,11 +204,32 @@ function index_to_author(course_index) {
 //  Too lazy to initialize each course by hand, so I'm using a for loop here.
 courses.forEach(course => {
     course.onclick = function () { course_switch_handler(Number(course.id.slice(-1))) };
-    course.onmouseover = function () { course.style.cursor = "pointer" };
+    course.onmouseover = function () { 
+        course.style.cursor = "pointer";
+        course.style.top = "-10px";
+        course.style.boxShadow = "0 2px 2px 0 #9c9c9c";
+    };
+    course.onmouseleave = function () {
+        course.style.top = ""
+        course.style.boxShadow = "";
+    };
 })
 
 //  assigning a proper handler for the main home button.
 main_home_button.onclick = home_switch_handler;
+
+//  assigning a handler for the event list view.
+event_list_button.onclick = function() {
+    if(display_schedule) {
+        event_list.style.display = "none"
+        event_list_button.style.rotate = "0deg";
+    } else {
+        event_list.style.display = "grid"
+        event_list_button.style.rotate = "90deg";
+    }
+
+    display_schedule = !display_schedule;
+}
 
 
 /*******************/
@@ -219,13 +252,14 @@ function course_switch_handler(course_index) {
 //  handles switching from any other view back to the initial home view.
 function home_switch_handler() {
     grid.style.display = "grid";
-    selector.style.display = "block";
+    selector.style.display = "flex";
     banner.style.display = "none";
     info.style.display = "none";
 
     mobile_side_bar.style.left = "-100%";
     mobile_opacity_curtain.style.display = "none";
-    document.body.style.overflow = "auto";
+    document.body.style.overflowY  = "scroll";
+    document.body.style.overflowX = "hidden";
 }
 
 
@@ -247,7 +281,8 @@ mobile_options_button.onclick = function() {
 mobile_options_exit.onclick = function() {
     mobile_side_bar.style.left = "-100%";
     mobile_opacity_curtain.style.display = "none";
-    document.body.style.overflow = "auto";
+    document.body.style.overflowY  = "scroll";
+    document.body.style.overflowX = "hidden";
 }
 
 /************************/
