@@ -7,10 +7,15 @@
 <!------------------------------------------------->
 <!-- dude if you inspect this; why? just why? oh, Lord! I still need to do
      the pop-ups - god made pretty websites to torture us! -->
+<!----------------------------------------------------------->
+<!-- my man stayed up for 48 hours straigth to tell you to RUN!!!!!! Slets go!
+     The man behind you says hi ;) -->
 
 <!-- TODO: WHY IN THE NAME OF CHRIST CAN YOU SCROLL TO THE RIGHT?? -->
 <!-- TODO: change the icons, so that the transition happends from grayscale to colour. -->
 <!-- TODO: figure out how to invert the border for hovering over icons. -->
+<!-- TODO: change size breakpoints for your won sanity. -->
+<!-- TODO: animations. -->
 
 <!DOCTYPE html>
 
@@ -26,7 +31,7 @@
         <link rel = "stylesheet" href = "output.css">
 
         <!-- main website icon -->
-        <link rel="icon" type="image/x-icon" href="resources/main_icon.ico">
+        <link rel="icon" type="image/x-icon" href = "resources/main_icon.ico">
 
         <!-- website title for display -->
          <title> Symposium: CAS </title>
@@ -48,7 +53,7 @@
                     <div id = "mobile_side_bar_options_top_container" class = "flex items-center">
 
                         <!-- main logo fitted in the side bar -->
-                        <div id = "logo" class = "flex-grow w-full h-auto hover:cursor-pointer">
+                        <div id = "mobile_logo" class = "flex-grow w-full h-auto hover:cursor-pointer">
                             <img src = "resources/main_logo.jpeg" class = "inline-block max-w-70 h-auto object-contain p-3">
                         </div>
 
@@ -145,6 +150,16 @@
 
             <!-- centers the content container in a brighspace-ish wayy -->
             <div id = "content_container_center" class = "block w-full lg:w-full xl:w-300 h-auto mr-0 ml-0 lg:mr-0 lg:ml-0 xl:mr-auto xl:ml-auto 2xl:mr-auto 2xl:ml-auto mt-0 mb-0">
+                
+                <!-- the banner for the current course unde inspection -->
+                <div id = "course_banner" class = "hidden z-0 w-full h-50 overflow-hidden pr-0 pl-0 md:pr-0 md:pl-0 lg:pr-5 lg:pl-5 2xl:pl-5 2xl:pr-5">
+                    
+                    <!-- the actual course cover that should change based on the selected course -->
+                    <img id = "course_img_banner" src = "resources/test_cover.jpg" class = "z-0 block w-full h-full object-cover">
+                    
+                    <!-- the course name to be displayed ontop the cover-->
+                    <span class = "z-1 relative left-5 bottom-20 hidden w-auto h-auto text-5xl text-white course_name"> Oh how I long for sweet release </span>
+                </div>
 
                 <!-- main content for the website, holds the schedule, courses and improtant announcements -->
                 <div id = "content_container" class = "z-0 block md:flex lg:flex md:gap-[5%] lg:gap-[5%] w-full h-auto bg-inherit p-5">
@@ -162,6 +177,22 @@
                                 <span id="companies" class = "p-3 hover:text-sky-600 hover:cursor-pointer"> Companies </span>
                             </div>
         
+                            <!-- course info container for dsiplaying the information about the selected course -->
+                            <div id = "course_info" class = "hidden w-full h-auto p-3 pt-5 text-2xl">
+
+                                <!-- the title for the shown announcement including author -->
+                                <div id = "course_title" class = "block w-ful h-auto pb-2 text-3xl text-sky-600"> <b>Welcome to my suffering!</b> </div>
+                                <div id = "course_author" class = "block w-full h-auto pb-5 text-sm text-gray-800"> Alin Hrimiuc posted on Mar 8, 2025 9:44</div>
+
+                                <!-- the actual text for the course -->
+                                <div id = "course_text" class = "block w-full h-auto">
+                                    [Smiles and looks at Zuko with interest.] That gloomy girl who sighs a lot? <br>
+                                    Zuko	[Smiles.] Yeah. Everyone in the Fire Nation thinks I'm a traitor. I couldn't drag her into it. <br>
+                                    Sokka	My first girlfriend turned into the moon. <br>
+                                    Zuko	[Shocked for a moment. Looks up at the sky briefly, before glancing back at Sokka.] That's rough, buddy.
+                                </div>
+                            </div>
+
                             <!-- course grid container for enlisting all the possible courses in an
                                 orderly manner -->
                             <!-------------------->
