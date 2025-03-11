@@ -216,16 +216,16 @@ function index_to_author(course_index) {
 /********************/
 
 //  assigning easter egg handlers for each unused button.
-profile.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
-beer_button.onclick = function() {easter_egg_dsiplay("resources/easter_egg_2.jpg"); }
-courses_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
-notification_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
-settings_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
-portofolio_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
-help_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
-mobile_settings_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg"); }
-mobile_portofolio_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
-mobile_help_button.onclick = function() { easter_egg_dsiplay("resources/easter_egg_1.jpg");}
+profile.onclick = function() { easter_egg_display("resources/easter_egg_1.jpg"); }
+beer_button.onclick = function() {easter_egg_display("resources/easter_egg_2.jpg"); }
+courses_button.onclick = function() { easter_egg_display("resources/easter_egg_3.jpeg"); }
+notification_button.onclick = function() { easter_egg_display("resources/easter_egg_4.png"); }
+settings_button.onclick = function() { easter_egg_display("resources/easter_egg_5.png"); }
+portofolio_button.onclick = function() { easter_egg_display("resources/easter_egg_6.png");}
+help_button.onclick = function() { easter_egg_display("resources/easter_egg_7.png");}
+mobile_settings_button.onclick = function() { easter_egg_display("resources/easter_egg_5.png"); }
+mobile_portofolio_button.onclick = function() { easter_egg_display("resources/easter_egg_6.png");}
+mobile_help_button.onclick = function() { easter_egg_display("resources/easter_egg_7.png");}
 
 //  assigning an escape handler for the shown easter_egg.
 easter_egg_img.onclick = function() {
@@ -269,7 +269,7 @@ event_list_button.onclick = function() {
     display_schedule = !display_schedule;
 }
 
-function easter_egg_dsiplay(easter_egg_source) {
+function easter_egg_display(easter_egg_source) {
     easter_egg_img.src = easter_egg_source;
 
     easter_egg_opacity_curtain.style.display = "block";
