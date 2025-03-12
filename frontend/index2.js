@@ -107,4 +107,14 @@ companies_link.onclick = function () {
   }
 }
 
-
+courses.forEach(course => {
+  course.onmouseover = function () { 
+      course.style.cursor = "pointer";
+      course.style.top = "-10px";
+      course.style.boxShadow = "0 2px 2px 0 #9c9c9c";
+  };
+  course.onmouseleave = function () {
+      course.style.top = ""
+      course.style.boxShadow = "";
+  };
+})
