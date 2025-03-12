@@ -4,9 +4,9 @@ var notification_button = document.getElementById("notification_button");
 var settings_button = document.getElementById("settings_button");
 var portofolio_button = document.getElementById("protofolio_button");
 var help_button = document.getElementById("help_button");
-// var mobile_settings_button = document.getElementById("mobile_settings_button");
-// var mobile_portofolio_button = document.getElementById("mobile_portofolio_button");
-// var mobile_help_button = document.getElementById("mobile_help_button");
+var mobile_settings_button = document.getElementById("mobile_settings_button");
+var mobile_portofolio_button = document.getElementById("mobile_portofolio_button");
+var mobile_help_button = document.getElementById("mobile_help_button");
 var profile = document.getElementById("profile");
 
 profile.onclick = function() { easter_egg_display("resources/easter_egg_1.jpg"); }
@@ -16,9 +16,9 @@ notification_button.onclick = function() { easter_egg_display("resources/easter_
 settings_button.onclick = function() { easter_egg_display("resources/easter_egg_5.png"); }
 portofolio_button.onclick = function() { easter_egg_display("resources/easter_egg_6.png");}
 help_button.onclick = function() { easter_egg_display("resources/easter_egg_7.png");}
-// mobile_settings_button.onclick = function() { easter_egg_display("resources/easter_egg_5.png"); }
-// mobile_portofolio_button.onclick = function() { easter_egg_display("resources/easter_egg_6.png");}
-// mobile_help_button.onclick = function() { easter_egg_display("resources/easter_egg_7.png");}
+mobile_settings_button.onclick = function() { easter_egg_display("resources/easter_egg_5.png"); }
+mobile_portofolio_button.onclick = function() { easter_egg_display("resources/easter_egg_6.png");}
+mobile_help_button.onclick = function() { easter_egg_display("resources/easter_egg_7.png");}
 
 var easter_egg_opacity_curtain = document.getElementById("easter_egg_opacity_curtain");
 var easter_egg = document.getElementById("easter_egg_curtain");
@@ -118,3 +118,45 @@ courses.forEach(course => {
       course.style.boxShadow = "";
   };
 })
+
+//  mobile relevant elements.
+var mobile_options_button = document.getElementById("top_side_bar_button");
+var mobile_options_exit = document.getElementById("mobile_side_bar_exit");
+var mobile_side_bar = document.getElementById("mobile_side_bar");
+var mobile_opacity_curtain = document.getElementById("main_opacity_curtain");
+var mobile_home_button = document.getElementById("mobile_logo_button")
+
+
+/*******************/
+/* Mobile Handlers */
+/*******************/
+
+function home_switch_handler() {
+  grid.style.display = "grid";
+  selector.style.display = "flex";
+  banner.style.display = "none";
+  info.style.display = "none";
+
+  mobile_side_bar.style.left = "-100%";
+  mobile_opacity_curtain.style.opacity = "none";
+  document.body.style.overflowY  = "scroll";
+  document.body.style.overflowX = "hidden";
+}
+
+//  assigning a proper handler for the mobile home button
+mobile_home_button.onclick = home_switch_handler;
+
+//  handler for the mobile side bar view.
+mobile_options_button.onclick = function() {
+    mobile_side_bar.style.left = "0";
+    mobile_opacity_curtain.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+//  handler for hiding the mobile side bar.
+mobile_options_exit.onclick = function() {
+    mobile_side_bar.style.left = "-100%";
+    mobile_opacity_curtain.style.display = "none";
+    document.body.style.overflowY  = "scroll";
+    document.body.style.overflowX = "hidden";
+}
